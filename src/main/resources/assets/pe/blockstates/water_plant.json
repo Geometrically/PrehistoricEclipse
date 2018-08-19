@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "pe:water_plant"
+    },
+    "level=1": {
+      "model": "pe:water_plant"
+    },
+    "level=2": {
+      "model": "pe:water_plant"
+    },
+    "level=3": {
+      "model": "pe:water_plant"
+    },
+    "level=4": {
+      "model": "pe:water_plant"
+    },
+    "level=5": {
+      "model": "pe:water_plant"
+    },
+    "level=6": {
+      "model": "pe:water_plant"
+    },
+    "level=7": {
+      "model": "pe:water_plant"
+    },
+    "level=8": {
+      "model": "pe:water_plant"
+    },
+    "level=9": {
+      "model": "pe:water_plant"
+    },
+    "level=10": {
+      "model": "pe:water_plant"
+    },
+    "level=11": {
+      "model": "pe:water_plant"
+    },
+    "level=12": {
+      "model": "pe:water_plant"
+    },
+    "level=13": {
+      "model": "pe:water_plant"
+    },
+    "level=14": {
+      "model": "pe:water_plant"
+    },
+    "level=15": {
+      "model": "pe:water_plant"
+    }
+  }
+}

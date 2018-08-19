@@ -1,0 +1,10 @@
+{
+  "variants":
+  {
+    "half=lower,stage=0": { "model": "pe:magnolia_sapling_bottom" },
+    "half=upper,stage=0": { "model": "pe:magnolia_sapling_top" },
+
+    "half=lower,stage=1": { "model": "pe:magnolia_sapling_bottom" },
+    "half=upper,stage=1": { "model": "pe:magnolia_sapling_top" }
+  }
+}

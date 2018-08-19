@@ -1,0 +1,9 @@
+{
+  "parent": "pe:block/nest",
+  "display": {
+    "firstperson_righthand": {
+      "translation": [0, 3, 0],
+      "scale": [1.5, 1.5, 1.5]
+    }
+  }
+}

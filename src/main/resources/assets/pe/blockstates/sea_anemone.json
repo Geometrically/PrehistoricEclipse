@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "pe:sea_anemone"
+    },
+    "level=1": {
+      "model": "pe:sea_anemone"
+    },
+    "level=2": {
+      "model": "pe:sea_anemone"
+    },
+    "level=3": {
+      "model": "pe:sea_anemone"
+    },
+    "level=4": {
+      "model": "pe:sea_anemone"
+    },
+    "level=5": {
+      "model": "pe:sea_anemone"
+    },
+    "level=6": {
+      "model": "pe:sea_anemone"
+    },
+    "level=7": {
+      "model": "pe:sea_anemone"
+    },
+    "level=8": {
+      "model": "pe:sea_anemone"
+    },
+    "level=9": {
+      "model": "pe:sea_anemone"
+    },
+    "level=10": {
+      "model": "pe:sea_anemone"
+    },
+    "level=11": {
+      "model": "pe:sea_anemone"
+    },
+    "level=12": {
+      "model": "pe:sea_anemone"
+    },
+    "level=13": {
+      "model": "pe:sea_anemone"
+    },
+    "level=14": {
+      "model": "pe:sea_anemone"
+    },
+    "level=15": {
+      "model": "pe:sea_anemone"
+    }
+  }
+}

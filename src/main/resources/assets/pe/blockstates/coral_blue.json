@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "pe:coral_blue"
+    },
+    "level=1": {
+      "model": "pe:coral_blue"
+    },
+    "level=2": {
+      "model": "pe:coral_blue"
+    },
+    "level=3": {
+      "model": "pe:coral_blue"
+    },
+    "level=4": {
+      "model": "pe:coral_blue"
+    },
+    "level=5": {
+      "model": "pe:coral_blue"
+    },
+    "level=6": {
+      "model": "pe:coral_blue"
+    },
+    "level=7": {
+      "model": "pe:coral_blue"
+    },
+    "level=8": {
+      "model": "pe:coral_blue"
+    },
+    "level=9": {
+      "model": "pe:coral_blue"
+    },
+    "level=10": {
+      "model": "pe:coral_blue"
+    },
+    "level=11": {
+      "model": "pe:coral_blue"
+    },
+    "level=12": {
+      "model": "pe:coral_blue"
+    },
+    "level=13": {
+      "model": "pe:coral_blue"
+    },
+    "level=14": {
+      "model": "pe:coral_blue"
+    },
+    "level=15": {
+      "model": "pe:coral_blue"
+    }
+  }
+}

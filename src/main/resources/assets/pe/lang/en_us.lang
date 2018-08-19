@@ -1,0 +1,13 @@
+itemGroup.prehistoric=Prehistoric Eclipse
+
+item.monolophosaurus_crest.name=Monolophosaurus Crest
+item.dakotaraptor_skull.name=Dakotaraptor Skull
+
+entity.Dakotaraptor.name=Dakotaraptor
+entity.Monolophosaurus.name=Monolophosaurus
+entity.Plesiosaurus.name=Plesiosaurus
+entity.Mawsonia.name=Mawsonia
+entity.Velociraptor.name=Velociraptor
+entity.Titanoceraptops.name=Titanoceratops
+
+tile.nest.name=Nest

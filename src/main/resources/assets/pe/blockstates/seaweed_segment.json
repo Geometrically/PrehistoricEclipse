@@ -1,0 +1,52 @@
+{
+  "variants": {
+    "level=0": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=1": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=2": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=3": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=4": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=5": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=6": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=7": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=8": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=9": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=10": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=11": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=12": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=13": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=14": {
+      "model": "pe:seaweed_segment"
+    },
+    "level=15": {
+      "model": "pe:seaweed_segment"
+    }
+  }
+}
