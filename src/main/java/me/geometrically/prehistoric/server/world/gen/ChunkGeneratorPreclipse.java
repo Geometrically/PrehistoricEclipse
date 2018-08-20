@@ -7,6 +7,7 @@ import me.geometrically.prehistoric.server.entity.land.herbivore.EntityArthrople
 import me.geometrically.prehistoric.server.entity.land.herbivore.EntityTitanoceratops;
 import me.geometrically.prehistoric.server.entity.water.EntityDunkleosteus;
 import me.geometrically.prehistoric.server.entity.water.EntityPlesiosaurus;
+import me.geometrically.prehistoric.server.entity.water.EntitySaurichthys;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
@@ -332,19 +333,6 @@ public class ChunkGeneratorPreclipse implements IChunkGenerator {
     public List getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos)
     {
         Biome biome = this.world.getBiome(pos);
-        if(biome == Biomes.DEEP_OCEAN || biome == Biomes.RIVER || biome == Biomes.OCEAN){
-            System.out.println("test");
-            return Lists.newArrayList(
-                    new Biome.SpawnListEntry(EntityPlesiosaurus.class, 80, 2, 5),
-                    new Biome.SpawnListEntry(EntityDunkleosteus.class, 100, 1, 1)
-            );
-        } else if(biome == Biomes.DESERT || biome == Biomes.MESA){
-            return Lists.newArrayList(new Biome.SpawnListEntry(EntityVelociraptor.class, 90, 4, 8));
-        } else if(biome == Biomes.PLAINS){
-            return Lists.newArrayList(new Biome.SpawnListEntry(EntityTitanoceratops.class, 80, 4, 10));
-        } else if(biome == Biomes.SWAMPLAND){
-            return Lists.newArrayList(new Biome.SpawnListEntry(EntityArthropleura.class, 95, 1, 1));
-        }
         return biome == null ? null : biome.getSpawnableList(creatureType);
     }
 

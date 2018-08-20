@@ -30,15 +30,14 @@ public class BiomeProviderPreclipse extends BiomeProvider {
         biomesToSpawnIn = new ArrayList<Biome>();
         biomesToSpawnIn.add(PEBiomes.DAWN_JUNGLE);
         biomesToSpawnIn.add(PEBiomes.DAWN_FOREST);
-        //biomesToSpawnIn.add(PEBiomes.WETLANDS);
-        biomesToSpawnIn.add(Biomes.SWAMPLAND);
-        biomesToSpawnIn.add(Biomes.MESA);
-        biomesToSpawnIn.add(Biomes.DESERT);
-        biomesToSpawnIn.add(Biomes.PLAINS);
-        biomesToSpawnIn.add(Biomes.OCEAN);
-        biomesToSpawnIn.add(Biomes.DEEP_OCEAN);
-        biomesToSpawnIn.add(Biomes.RIVER);
+        biomesToSpawnIn.add(PEBiomes.MESA);
+        biomesToSpawnIn.add(PEBiomes.SWAMP);
+        biomesToSpawnIn.add(PEBiomes.DESERT);
         biomesToSpawnIn.add(PEBiomes.MAGNOLIA_FOREST);
+        biomesToSpawnIn.add(PEBiomes.PLAINS);
+        biomesToSpawnIn.add(PEBiomes.OCEAN);
+        biomesToSpawnIn.add(PEBiomes.DEEP_OCEAN);
+        biomesToSpawnIn.add(PEBiomes.STREAM);
     }
 
     public BiomeProviderPreclipse(long par1, WorldType par3WorldType)
@@ -71,7 +70,7 @@ public class BiomeProviderPreclipse extends BiomeProvider {
     {
         Biome biome = biomeCache.getBiome(pos.getX(), pos.getZ(), biomegen);
         if (biome == null)
-            return Biomes.PLAINS;
+            return PEBiomes.PLAINS;
 
         return biome;
     }
@@ -94,7 +93,7 @@ public class BiomeProviderPreclipse extends BiomeProvider {
             if (aint[i] >= 0 && aint[i] <= Biome.REGISTRY.getKeys().size())
                 par1ArrayOfBiome[i] = Biome.getBiome(aint[i]);
             else
-                par1ArrayOfBiome[i] = Biomes.PLAINS;
+                par1ArrayOfBiome[i] = PEBiomes.PLAINS;
 
         return par1ArrayOfBiome;
     }
@@ -124,7 +123,7 @@ public class BiomeProviderPreclipse extends BiomeProvider {
                 if (aint[i] >= 0 && aint[i] <= Biome.REGISTRY.getKeys().size())
                     par1ArrayOfBiome[i] = Biome.getBiome(aint[i]);
                 else
-                    par1ArrayOfBiome[i] = Biomes.PLAINS;
+                    par1ArrayOfBiome[i] = PEBiomes.PLAINS;
 
             return par1ArrayOfBiome;
         }

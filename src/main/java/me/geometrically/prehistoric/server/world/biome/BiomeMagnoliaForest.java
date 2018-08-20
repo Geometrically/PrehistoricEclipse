@@ -1,5 +1,7 @@
 package me.geometrically.prehistoric.server.world.biome;
 
+import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
+import me.geometrically.prehistoric.server.entity.land.herbivore.EntityProtoceratops;
 import me.geometrically.prehistoric.server.init.PEBlocks;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockNewLog;
@@ -26,6 +28,8 @@ public class BiomeMagnoliaForest extends BiomePrehistoric{
         this.decorator.treesPerChunk = 10;
         this.decorator.grassPerChunk = 3;
         this.setColors(4625193);
+
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityProtoceratops.class, 90, 3, 5));
     }
     @Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)

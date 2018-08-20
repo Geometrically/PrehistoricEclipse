@@ -15,12 +15,12 @@ public abstract class GenLayerPreclipse extends GenLayer{
         biomes = new GenLayerZoom(1000L, biomes);
         biomes = new GenLayerZoom(1000L, biomes);
 
-        GenLayer oceanLayer = new GenLayerDeepOcean(4L, biomes);
-        biomes = new GenLayerZoom(1000L, biomes);
+        GenLayer oceanLayer = new GenLayerPEDeepOcean(4L, biomes);
+        biomes = new GenLayerZoom(1000L, oceanLayer);
 
-        GenLayer riverLayer = new GenLayerRiver(1L, biomes);
+        GenLayer riverLayer = new GenLayerStream(1L, biomes);
         riverLayer = new GenLayerSmooth(7000L, riverLayer);
-        biomes = new GenLayerRiverMix(100L, biomes, riverLayer);
+        biomes = new GenLayerStreamMix(100L, biomes, riverLayer);
 
         GenLayer genlayervoronoizoom = new GenLayerVoronoiZoom(10L, biomes);
 
