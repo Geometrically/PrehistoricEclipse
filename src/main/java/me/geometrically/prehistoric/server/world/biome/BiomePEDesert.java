@@ -15,6 +15,6 @@ public class BiomePEDesert extends BiomePrehistoric{
         this.decorator.reedsPerChunk = 50;
         this.decorator.cactiPerChunk = 10;
 
-        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityVelociraptor.class, 90, 4, 8));
+        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityVelociraptor.class, 150, 4, 8));
     }
 }

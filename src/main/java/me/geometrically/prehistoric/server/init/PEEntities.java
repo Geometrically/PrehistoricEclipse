@@ -43,7 +43,7 @@ public class PEEntities {
         registerEntity(EntityPlateosaurus.class, "Plateosaurus", true);
         registerEntity(EntityArthropleura.class, "Arthropleura", true);
         registerEntity(EntitySaurichthys.class, "Saurichthys", true);
-        registerEntity(EntityTyrannosaurusRex.class, "TyrannosaurusRex", true);
+        registerEntity(EntityTyrannosaurusRex.class, "TyrannosaurusRex", false);
         registerEntity(EntityProtoceratops.class, "Protoceratops", true);
         registerEntity(EntitySeaScorpion.class, "SeaScorpion", true);
 

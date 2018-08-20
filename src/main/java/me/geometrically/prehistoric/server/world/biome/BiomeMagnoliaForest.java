@@ -29,7 +29,7 @@ public class BiomeMagnoliaForest extends BiomePrehistoric{
         this.decorator.grassPerChunk = 3;
         this.setColors(4625193);
 
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityProtoceratops.class, 90, 3, 5));
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityProtoceratops.class, 110, 3, 5));
     }
     @Override
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)

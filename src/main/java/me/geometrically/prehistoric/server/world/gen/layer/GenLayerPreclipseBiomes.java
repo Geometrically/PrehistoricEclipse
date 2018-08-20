@@ -8,7 +8,7 @@ import net.minecraft.world.gen.layer.IntCache;
 
 public class GenLayerPreclipseBiomes extends GenLayer{
 
-    protected Biome[] allowedBiomes = {PEBiomes.DAWN_JUNGLE, PEBiomes.DAWN_FOREST, PEBiomes.MESA,PEBiomes.SWAMP,Biomes.PLAINS, PEBiomes.DESERT, PEBiomes.OCEAN, PEBiomes.DEEP_OCEAN, PEBiomes.STREAM, PEBiomes.MAGNOLIA_FOREST};
+    protected Biome[] allowedBiomes = {PEBiomes.DAWN_JUNGLE, PEBiomes.DAWN_FOREST, PEBiomes.MESA,PEBiomes.SWAMP,PEBiomes.PLAINS, PEBiomes.DESERT, PEBiomes.OCEAN, PEBiomes.DEEP_OCEAN, PEBiomes.STREAM, PEBiomes.MAGNOLIA_FOREST};
 
     public GenLayerPreclipseBiomes(long seed, GenLayer genlayer) {
         super(seed);

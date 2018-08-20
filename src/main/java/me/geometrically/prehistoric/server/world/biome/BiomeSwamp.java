@@ -14,7 +14,7 @@ import java.util.Random;
 
 public class BiomeSwamp extends BiomePrehistoric {
     public BiomeSwamp(){
-        super(new BiomeProperties("Swamp").setBaseHeight(-0.2F).setHeightVariation(0.1F).setTemperature(0.8F).setRainfall(0.9F).setWaterColor(5055232));
+        super(new BiomeProperties("Swamp").setBaseHeight(-0.2F).setHeightVariation(0.1F).setTemperature(0.8F).setRainfall(0.9F).setWaterColor(14745518));
         this.decorator.treesPerChunk = 2;
         this.decorator.flowersPerChunk = 1;
         this.decorator.deadBushPerChunk = 1;
@@ -25,7 +25,8 @@ public class BiomeSwamp extends BiomePrehistoric {
         this.decorator.sandPatchesPerChunk = 0;
         this.decorator.gravelPatchesPerChunk = 0;
         this.decorator.grassPerChunk = 5;
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityPlateosaurus.class, 15, 4, 8));
+
+        this.spawnableCreatureList.add(new SpawnListEntry(EntityPlateosaurus.class, 160, 4, 8));
     }
 
     @Override

@@ -17,13 +17,11 @@ public class BiomePEPlains extends BiomePrehistoric{
     public BiomePEPlains()
     {
         super(new BiomeProperties("Plains").setBaseHeight(0.125F).setHeightVariation(0.05F).setTemperature(0.8F).setRainfall(0.4F));
-        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityHorse.class, 5, 2, 6));
-        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityDonkey.class, 1, 1, 3));
         this.decorator.treesPerChunk = 0;
         this.decorator.extraTreeChance = 0.05F;
         this.decorator.flowersPerChunk = 4;
         this.decorator.grassPerChunk = 10;
-
+        this.setColors(4625193);
         this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityTitanoceratops.class, 100, 4, 10));
     }
 

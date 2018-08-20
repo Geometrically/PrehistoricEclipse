@@ -46,7 +46,7 @@ public class BiomePEMesa extends BiomePrehistoric {
         this.decorator.cactiPerChunk = 5;
         this.decorator.flowersPerChunk = 0;
 
-        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityVelociraptor.class, 90, 4, 8));
+        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityVelociraptor.class, 150, 4, 8));
     }
 
 
