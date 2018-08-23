@@ -31,7 +31,9 @@ public class EntityVelociraptor extends EntityCarnivore {
         this.tasks.addTask(5, this.aiStartle);
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityPlayer.class, 15.0F));
         this.targetTasks.addTask(5, new EntityAITargetNonTamed(this, EntityProtoceratops.class, true, new Predicate<Entity>() {
-            public boolean apply(@Nullable Entity p_apply_1_) { return p_apply_1_ instanceof EntityProtoceratops; }
+            public boolean apply(@Nullable Entity entity) {
+                return entity instanceof EntityProtoceratops;
+            }
         }));
         super.initEntityAI();
     }

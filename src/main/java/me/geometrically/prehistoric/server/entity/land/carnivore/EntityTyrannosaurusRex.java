@@ -2,11 +2,11 @@ package me.geometrically.prehistoric.server.entity.land.carnivore;
 
 import com.google.common.base.Predicate;
 import me.geometrically.prehistoric.server.Reference;
-import me.geometrically.prehistoric.server.entity.EntityDinosaur;
 import me.geometrically.prehistoric.server.entity.ai.EntityAIDinoMate;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAICall;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIEat;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIStartle;
+import me.geometrically.prehistoric.server.entity.land.EntityDinosaur;
 import me.geometrically.prehistoric.server.entity.land.herbivore.EntityPlateosaurus;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -40,7 +40,9 @@ public class EntityTyrannosaurusRex extends EntityCarnivore{
         this.tasks.addTask(8, this.aiStartle);
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityPlayer.class, 25.0F));
         this.targetTasks.addTask(5, new EntityAITargetNonTamed(this, EntityDinosaur.class, true, new Predicate<Entity>() {
-            public boolean apply(@Nullable Entity p_apply_1_) { return p_apply_1_ instanceof EntityDakotaraptor || p_apply_1_ instanceof EntityMonolophosaurus || p_apply_1_ instanceof EntityPlateosaurus; }
+            public boolean apply(@Nullable Entity entity) {
+                return entity instanceof EntityDakotaraptor || entity instanceof EntityMonolophosaurus || entity instanceof EntityPlateosaurus;
+            }
         }));
     }
 

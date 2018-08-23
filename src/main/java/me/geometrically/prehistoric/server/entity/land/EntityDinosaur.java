@@ -1,12 +1,11 @@
-package me.geometrically.prehistoric.server.entity;
+package me.geometrically.prehistoric.server.entity.land;
 
-import com.dabigjoe.obsidianAPI.animation.wrapper.IEntityAnimated;
 import com.google.common.base.Optional;
+import me.geometrically.prehistoric.server.entity.EntityPrehistoric;
 import me.geometrically.prehistoric.server.entity.ai.EntityAIGuardNest;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIEat;
-import net.minecraft.entity.*;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.*;
-import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemFood;
@@ -16,26 +15,19 @@ import net.minecraft.nbt.NBTUtil;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
 
-public class EntityDinosaur extends EntityTameable implements IEntityAnimated,IGenderable{
+public class EntityDinosaur extends EntityPrehistoric {
 
     private static final DataParameter<Optional<BlockPos>> NEST_BLOCK_POS = EntityDataManager.<Optional<BlockPos>>createKey(EntityDinosaur.class, DataSerializers.OPTIONAL_BLOCK_POS);
-    private static final DataParameter<Integer> VARIANT = EntityDataManager.<Integer>createKey(EntityDinosaur.class, DataSerializers.VARINT);
 
     protected EntityAIEat aiEat;
-
-    public boolean isAttacking = false;
-    private int attackingTimer = 0;
 
     public EntityDinosaur(World world){
         super(world);
@@ -56,9 +48,6 @@ public class EntityDinosaur extends EntityTameable implements IEntityAnimated,IG
         this.targetTasks.addTask(3, new EntityAIHurtByTarget(this, true, new Class[0]));
     }
 
-    public EntityDinosaur createChild(EntityAgeable dinosaur){
-        return new EntityDinosaur(this.world);
-    }
     @Override
     public void onLivingUpdate(){
         if(!this.isInLove() && this.growingAge == 0){
@@ -71,54 +60,16 @@ public class EntityDinosaur extends EntityTameable implements IEntityAnimated,IG
             this.motionX -= (double)(MathHelper.sin(f) * 0.001F);
             this.motionZ += (double)(MathHelper.cos(f) * 0.001F);
         }
-        if(!this.world.isRemote){
-            if(this.isAttacking){
-                this.attackingTimer++;
-                if(this.attackingTimer >= 20){
-                    this.isAttacking = false;
-                    this.attackingTimer = 0;
-                }
-            } else {
-                this.attackingTimer = 0;
-            }
-        }
         super.onLivingUpdate();
     }
 
-    @Override
-    public boolean isMoving() {
-        return limbSwingAmount > 0.02F;
-    }
-    @Override
-    public boolean isBreedingItem(ItemStack stack)
-    {
-        return false;
-    }
     @Override
     protected void entityInit()
     {
         super.entityInit();
         this.dataManager.register(NEST_BLOCK_POS, Optional.absent());
-        this.dataManager.register(VARIANT, Integer.valueOf(0));
     }
 
-    @Override
-    protected void applyEntityAttributes(){
-        super.applyEntityAttributes();
-        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-    }
-    @Override
-    public boolean attackEntityAsMob(Entity entityIn)
-    {
-        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue()));
-        this.isAttacking = true;
-        if (flag)
-        {
-            this.applyEnchantments(this, entityIn);
-        }
-
-        return flag;
-    }
     @Override
     public boolean processInteract(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.getHeldItem(hand);
@@ -182,8 +133,6 @@ public class EntityDinosaur extends EntityTameable implements IEntityAnimated,IG
     {
         super.writeEntityToNBT(compound);
         if(nestBlockPos() != null) compound.setTag("nest" ,NBTUtil.createPosTag(nestBlockPos()));
-
-        compound.setInteger("Variant", this.getVariant());
     }
 
     public void readEntityFromNBT(NBTTagCompound compound)
@@ -192,7 +141,6 @@ public class EntityDinosaur extends EntityTameable implements IEntityAnimated,IG
         if(compound.hasKey("nest")){
             this.setNestBlockPos(NBTUtil.getPosFromTag(compound.getCompoundTag("nest")));
         }
-        this.setVariant(compound.getInteger("Variant"));
     }
 
     public void setNestBlockPos(@Nullable BlockPos pos)
@@ -200,35 +148,9 @@ public class EntityDinosaur extends EntityTameable implements IEntityAnimated,IG
         this.dataManager.set(NEST_BLOCK_POS, Optional.fromNullable(pos));
     }
 
-    public int getVariant()
-    {
-        return MathHelper.clamp(((Integer)this.dataManager.get(VARIANT)).intValue(), 0, 1);
-    }
-
-    public void setVariant(int variant)
-    {
-        this.dataManager.set(VARIANT, Integer.valueOf(variant));
-    }
-
-    @Override
-    public ResourceLocation getDefaultTexture(){
-        return null;
-    }
-
-    @Override
-    public ResourceLocation getVariantTexture(){
-        return null;
-    }
 
     @Nullable
     public BlockPos nestBlockPos(){
         return (BlockPos)((Optional)this.dataManager.get(NEST_BLOCK_POS)).orNull();
-    }
-
-    @Nullable
-    public IEntityLivingData onInitialSpawn(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata)
-    {
-        this.setVariant(this.getRNG().nextInt(2));
-        return super.onInitialSpawn(difficulty, livingdata);
     }
 }

@@ -35,7 +35,9 @@ public class EntityMonolophosaurus extends EntityCarnivore {
         this.tasks.addTask(7, new EntityAIDinoMate(this, 1.0D));
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityPlayer.class, 20.0F));
         this.targetTasks.addTask(5, new EntityAITargetNonTamed(this, EntityPlateosaurus.class, true, new Predicate<Entity>() {
-            public boolean apply(@Nullable Entity p_apply_1_) { return p_apply_1_ instanceof EntityPlateosaurus; }
+            public boolean apply(@Nullable Entity entity) {
+                return entity instanceof EntityPlateosaurus;
+            }
         }));
     }
 

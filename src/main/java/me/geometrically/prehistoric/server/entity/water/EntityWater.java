@@ -1,35 +1,22 @@
 package me.geometrically.prehistoric.server.entity.water;
 
-import com.dabigjoe.obsidianAPI.animation.wrapper.IEntityAnimated;
-import com.google.common.base.Predicate;
-import me.geometrically.prehistoric.server.entity.EntityDinosaur;
-import me.geometrically.prehistoric.server.entity.IGenderable;
+import me.geometrically.prehistoric.server.entity.EntityPrehistoric;
 import me.geometrically.prehistoric.server.entity.ai.EntityAISwim;
-import me.geometrically.prehistoric.server.entity.ai.EntityAITargetWater;
-import net.minecraft.entity.*;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.monster.EntityMob;
-import net.minecraft.entity.passive.EntityAnimal;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.MoverType;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.pathfinding.PathNavigateSwimmer;
 import net.minecraft.util.DamageSource;
-import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-import javax.annotation.Nullable;
-
-public class EntityWater extends EntityAnimal implements IEntityAnimated, IGenderable{
+public class EntityWater extends EntityPrehistoric {
 
     private static final DataParameter<Boolean> MOVING = EntityDataManager.<Boolean>createKey(EntityWater.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Integer> VARIANT = EntityDataManager.<Integer>createKey(EntityDinosaur.class, DataSerializers.VARINT);
-
-    public boolean isAttacking = false;
-    private int attackingTimer = 0;
 
     public EntityWater(World world) {
         super(world);
@@ -37,13 +24,6 @@ public class EntityWater extends EntityAnimal implements IEntityAnimated, IGende
         this.tasks.addTask(1, new EntityAISwim(this));
         this.navigator = new PathNavigateSwimmer(this, world);
     }
-
-    @Override
-    protected void applyEntityAttributes(){
-        super.applyEntityAttributes();
-        this.getAttributeMap().registerAttribute(SharedMonsterAttributes.ATTACK_DAMAGE);
-    }
-
     @Override
     public void onEntityUpdate() {
         int air = this.getAir();
@@ -63,17 +43,6 @@ public class EntityWater extends EntityAnimal implements IEntityAnimated, IGende
     }
     @Override
     public void onLivingUpdate(){
-        if(!this.world.isRemote){
-            if(this.isAttacking){
-                this.attackingTimer++;
-                if(this.attackingTimer >= 20){
-                    this.isAttacking = false;
-                    this.attackingTimer = 0;
-                }
-            } else {
-                this.attackingTimer = 0;
-            }
-        }
         super.onLivingUpdate();
     }
 
@@ -105,17 +74,6 @@ public class EntityWater extends EntityAnimal implements IEntityAnimated, IGende
     {
         super.entityInit();
         this.dataManager.register(MOVING, Boolean.valueOf(false));
-        this.dataManager.register(VARIANT, Integer.valueOf(0));
-    }
-    @Override
-    public void writeEntityToNBT(NBTTagCompound compound)
-    {
-        compound.setInteger("Variant", this.getVariant());
-    }
-    @Override
-    public void readEntityFromNBT(NBTTagCompound compound) {
-        super.readEntityFromNBT(compound);
-        this.setVariant(compound.getInteger("Variant"));
     }
     @Override
     public boolean isMoving(){
@@ -125,26 +83,6 @@ public class EntityWater extends EntityAnimal implements IEntityAnimated, IGende
     private void setMoving(boolean moving)
     {
         this.dataManager.set(MOVING, Boolean.valueOf(moving));
-    }
-
-    public int getVariant()
-    {
-        return MathHelper.clamp(((Integer)this.dataManager.get(VARIANT)).intValue(), 0, 1);
-    }
-
-    public void setVariant(int variant)
-    {
-        this.dataManager.set(VARIANT, Integer.valueOf(variant));
-    }
-
-    @Override
-    public ResourceLocation getDefaultTexture(){
-        return null;
-    }
-
-    @Override
-    public ResourceLocation getVariantTexture(){
-        return null;
     }
 
     class MoveHelper extends EntityMoveHelper {
@@ -177,18 +115,5 @@ public class EntityWater extends EntityAnimal implements IEntityAnimated, IGende
     @Override
     public EntityWater createChild(EntityAgeable entity){
         return new EntityWater(this.world);
-    }
-
-    @Override
-    public boolean attackEntityAsMob(Entity entityIn)
-    {
-        boolean flag = entityIn.attackEntityFrom(DamageSource.causeMobDamage(this), (float)((int)this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).getAttributeValue()));
-        this.isAttacking = true;
-        if (flag)
-        {
-            this.applyEnchantments(this, entityIn);
-        }
-
-        return flag;
     }
 }

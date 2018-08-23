@@ -7,7 +7,9 @@ import me.geometrically.prehistoric.server.entity.ai.animation.EntityAICall;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIEat;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIStartle;
 import me.geometrically.prehistoric.server.entity.land.herbivore.EntityPlateosaurus;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAITargetNonTamed;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
 import net.minecraft.entity.player.EntityPlayer;
@@ -37,7 +39,9 @@ public class EntityDakotaraptor extends EntityCarnivore{
         this.tasks.addTask(8, this.aiStartle);
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityPlayer.class, 25.0F));
         this.targetTasks.addTask(5, new EntityAITargetNonTamed(this, EntityPlateosaurus.class, true, new Predicate<Entity>() {
-            public boolean apply(@Nullable Entity p_apply_1_) { return p_apply_1_ instanceof EntityPlateosaurus; }
+            public boolean apply(@Nullable Entity entity) {
+                return entity instanceof EntityPlateosaurus;
+            }
         }));
     }
 

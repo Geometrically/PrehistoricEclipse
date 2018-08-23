@@ -3,7 +3,7 @@ package me.geometrically.prehistoric.client.render;
 import com.dabigjoe.obsidianAPI.render.RenderAnimated;
 import me.geometrically.prehistoric.client.model.ModelDinosaur;
 import me.geometrically.prehistoric.server.entity.EntityEgg;
-import me.geometrically.prehistoric.server.entity.IGenderable;
+import me.geometrically.prehistoric.server.entity.EntityPrehistoric;
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityTyrannosaurusRex;
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
@@ -78,8 +78,8 @@ public class RenderDinosaur extends RenderAnimated{
 
     @Override
     protected ResourceLocation getEntityTexture(Entity entity) {
-        if(entity instanceof IGenderable){
-            IGenderable dinosaur = (IGenderable) entity;
+        if (entity instanceof EntityPrehistoric) {
+            EntityPrehistoric dinosaur = (EntityPrehistoric) entity;
             if(dinosaur.getVariant() == 1){
                 model.setTexture(dinosaur.getVariantTexture());
                 return dinosaur.getVariantTexture();

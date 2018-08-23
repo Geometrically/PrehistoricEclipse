@@ -1,10 +1,10 @@
 package me.geometrically.prehistoric.server.entity.land.herbivore;
 
-import me.geometrically.prehistoric.server.entity.EntityDinosaur;
 import me.geometrically.prehistoric.server.entity.ai.EntityAIDinoEatGrass;
-import net.minecraft.entity.ai.*;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.DamageSource;
+import me.geometrically.prehistoric.server.entity.land.EntityDinosaur;
+import net.minecraft.entity.ai.EntityAILookIdle;
+import net.minecraft.entity.ai.EntityAISwimming;
+import net.minecraft.entity.ai.EntityAIWanderAvoidWater;
 import net.minecraft.world.World;
 
 public class EntityHerbivore extends EntityDinosaur{
@@ -20,17 +20,5 @@ public class EntityHerbivore extends EntityDinosaur{
         this.tasks.addTask(1, new EntityAIWanderAvoidWater(this, 1.0D));
         this.tasks.addTask(3, new EntityAILookIdle(this));
         this.tasks.addTask(4, new EntityAIDinoEatGrass(this));
-    }
-
-    @Override
-    public boolean attackEntityFrom(DamageSource source, float amount) {
-        if (!this.isEntityInvulnerable(source)) {
-            if(source.getTrueSource() instanceof EntityPlayer){
-                this.setAttackTarget((EntityPlayer)source.getTrueSource());
-            }
-            return super.attackEntityFrom(source, amount);
-        } else {
-            return false;
-        }
     }
 }
