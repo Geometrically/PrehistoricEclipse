@@ -3,8 +3,6 @@ package me.geometrically.prehistoric.server.world.biome;
 import me.geometrically.prehistoric.server.entity.land.herbivore.EntityTitanoceratops;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
-import net.minecraft.entity.passive.EntityDonkey;
-import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.Biome;
@@ -22,7 +20,7 @@ public class BiomePEPlains extends BiomePrehistoric{
         this.decorator.flowersPerChunk = 4;
         this.decorator.grassPerChunk = 10;
         this.setColors(4625193);
-        this.spawnableCreatureList.add(new Biome.SpawnListEntry(EntityTitanoceratops.class, 100, 4, 10));
+        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityTitanoceratops.class, 1, 4, 10));
     }
 
     public BlockFlower.EnumFlowerType pickRandomFlower(Random rand, BlockPos pos)

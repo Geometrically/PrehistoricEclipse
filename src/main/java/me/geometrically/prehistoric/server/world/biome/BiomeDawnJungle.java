@@ -33,10 +33,10 @@ public class BiomeDawnJungle extends BiomePrehistoric {
         this.decorator.reedsPerChunk = 20;
         this.setColors(24871);
 
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityDakotaraptor.class, 120, 3, 5));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityMonolophosaurus.class, 140, 2, 4));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityPlateosaurus.class, 125, 3, 6));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityArthropleura.class, 110, 1, 1));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityDakotaraptor.class, 1, 3, 5));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityMonolophosaurus.class, 2, 2, 4));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityPlateosaurus.class, 1, 3, 6));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityArthropleura.class, 2, 1, 1));
     }
     public WorldGenAbstractTree getRandomTreeFeature(Random rand)
     {

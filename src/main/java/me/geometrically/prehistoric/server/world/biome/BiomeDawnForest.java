@@ -1,8 +1,6 @@
 package me.geometrically.prehistoric.server.world.biome;
 
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityMonolophosaurus;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityArthropleura;
 import me.geometrically.prehistoric.server.entity.land.herbivore.EntityPlateosaurus;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.init.Blocks;
@@ -26,8 +24,8 @@ public class BiomeDawnForest extends BiomePrehistoric{
         this.decorator.grassPerChunk = 3;
         this.setColors(2054144);
 
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityDakotaraptor.class, 90, 3, 5));
-        this.spawnableCreatureList.add(new SpawnListEntry(EntityPlateosaurus.class, 100, 3, 6));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityDakotaraptor.class, 1, 3, 5));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityPlateosaurus.class, 2, 3, 6));
         //TODO Add rex here once it actually gets added
     }
     @Override
