@@ -1,17 +1,9 @@
 package me.geometrically.prehistoric.server.world.gen;
 
-import com.google.common.collect.Lists;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityArthropleura;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityTitanoceratops;
-import me.geometrically.prehistoric.server.entity.water.EntityDunkleosteus;
-import me.geometrically.prehistoric.server.entity.water.EntityPlesiosaurus;
-import me.geometrically.prehistoric.server.entity.water.EntitySaurichthys;
+import com.google.common.collect.ImmutableList;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EnumCreatureType;
-import net.minecraft.init.Biomes;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
@@ -332,8 +324,11 @@ public class ChunkGeneratorPreclipse implements IChunkGenerator {
     @Override
     public List getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos)
     {
-        Biome biome = this.world.getBiome(pos);
-        return biome == null ? null : biome.getSpawnableList(creatureType);
+        if (rand.nextInt(5) == 0) {
+            Biome biome = this.world.getBiome(pos);
+            return biome == null ? null : biome.getSpawnableList(creatureType);
+        }
+        return ImmutableList.of();
     }
 
     @Override

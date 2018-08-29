@@ -116,4 +116,19 @@ public class EntityWater extends EntityPrehistoric {
     public EntityWater createChild(EntityAgeable entity){
         return new EntityWater(this.world);
     }
+
+    @Override
+    public boolean canBreatheUnderwater() {
+        return true;
+    }
+
+    @Override
+    public boolean getCanSpawnHere() {
+        return true;
+    }
+
+    @Override
+    public boolean isPushedByWater() {
+        return false;
+    }
 }
