@@ -6,19 +6,18 @@ import com.dabigjoe.obsidianAPI.animation.wrapper.FunctionAnimationWrapper;
 import com.dabigjoe.obsidianAPI.registry.AnimationRegistry;
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.EntityEgg;
+import me.geometrically.prehistoric.server.entity.EntityPrehistoric;
 import me.geometrically.prehistoric.server.entity.ai.EntityAIDinoEatGrass;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAICall;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIEat;
+import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIRunFromEntity;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIStartle;
 import me.geometrically.prehistoric.server.entity.land.EntityDinosaur;
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityMonolophosaurus;
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityTyrannosaurusRex;
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityArthropleura;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityPlateosaurus;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityProtoceratops;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityTitanoceratops;
+import me.geometrically.prehistoric.server.entity.land.herbivore.*;
 import me.geometrically.prehistoric.server.entity.water.*;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.passive.EntityTameable;
@@ -29,8 +28,9 @@ public class PEAnimations {
     private static FunctionAnimationWrapper.IsActiveFunction returnTrue = (entity) -> { return true; };
     private static FunctionAnimationWrapper.IsActiveFunction isSwimming = (entity) -> { return entity instanceof EntityWater ? ((EntityWater) entity).isMoving() : false; };
     private static FunctionAnimationWrapper.IsActiveFunction isSitting = (entity) -> { return entity instanceof EntityTameable ? ((EntityTameable) entity).isSitting() : false; };
-    private static FunctionAnimationWrapper.IsActiveFunction isAttacking = (entity) -> { return entity instanceof EntityDinosaur ? ((EntityDinosaur) entity).isAttacking : false; };
-    private static FunctionAnimationWrapper.IsActiveFunction isWaterAttacking = (entity) -> { return entity instanceof EntityWater ? ((EntityWater) entity).isAttacking : false; };
+    private static FunctionAnimationWrapper.IsActiveFunction isAttacking = (entity) -> {
+        return entity instanceof EntityPrehistoric ? ((EntityPrehistoric) entity).isAttacking : false;
+    };
     private static FunctionAnimationWrapper.IsActiveFunction isRunning = (entity) -> { return entity instanceof EntityDinosaur ? ((EntityDinosaur) entity).getAttackTarget() != null : false; };
 
     public static void registerAnimations(){
@@ -47,6 +47,7 @@ public class PEAnimations {
         registerRexAnimations();
         registerProtoAnimations();
         registerSeaScorpionAnimations();
+        registerPachyAnimations();
     }
     private static void registerEggAnimations(){
         FunctionAnimationWrapper.IsActiveFunction isHatching = (entity) -> { return entity instanceof EntityEgg ? ((EntityEgg) entity).timeUntilHatch() <= 200 : false; };
@@ -76,13 +77,13 @@ public class PEAnimations {
         AnimationRegistry.registerEntity(EntityPlesiosaurus.class, "plesiosaurus");
         AnimationRegistry.registerAnimation("plesiosaurus", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/ples/plesiosaurus_idle.oba"), 100, true, returnTrue);
         AnimationRegistry.registerAnimation("plesiosaurus", "Swim", new ResourceLocation(Reference.MOD_ID + ":animations/ples/plesiosaurus_swim.oba"), 1, true, isSwimming);
-        AnimationRegistry.registerAnimation("plesiosaurus", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/ples/plesiosaurus_attack.oba"), 1, true, isWaterAttacking);
+        AnimationRegistry.registerAnimation("plesiosaurus", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/ples/plesiosaurus_attack.oba"), 1, true, isAttacking);
     }
     private static void registerDunkleoAnimations(){
         AnimationRegistry.registerEntity(EntityDunkleosteus.class, "dunkleosteus");
         AnimationRegistry.registerAnimation("dunkleosteus", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/dunkleo/dunkleo_idle.oba"), 100, true, returnTrue);
         AnimationRegistry.registerAnimation("dunkleosteus", "Swim", new ResourceLocation(Reference.MOD_ID + ":animations/dunkleo/dunkleo_swim.oba"), 1, true, isSwimming);
-        AnimationRegistry.registerAnimation("dunkleosteus", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/dunkleo/dunkleo_attack.oba"), 8, true, isWaterAttacking);
+        AnimationRegistry.registerAnimation("dunkleosteus", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/dunkleo/dunkleo_attack.oba"), 8, true, isAttacking);
     }
     private static void registerVeloAnimations(){
         AnimationRegistry.registerEntity(EntityVelociraptor.class, "velociraptor");
@@ -124,11 +125,20 @@ public class PEAnimations {
         AnimationRegistry.registerAnimation("protoceratops", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/proto/protoceratops_idle.oba"), 100, true, returnTrue);
         AnimationRegistry.registerAnimation("protoceratops", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/proto/protoceratops_walk.oba"), 10, true, isWalking);
         AnimationRegistry.registerAnimation("protoceratops", "Eat", new AIAnimationWrapper(EntityAIDinoEatGrass.name, new ResourceLocation(Reference.MOD_ID + ":animations/proto/protoceratops_eat.oba"), 5, true));
+        AnimationRegistry.registerAnimation("protoceratops", "Run", new AIAnimationWrapper(EntityAIRunFromEntity.name, new ResourceLocation(Reference.MOD_ID + ":animations/proto/protoceratops_run.oba"), 3, true));
     }
     private static void registerSeaScorpionAnimations(){
         AnimationRegistry.registerEntity(EntitySeaScorpion.class, "seascorpion");
         AnimationRegistry.registerAnimation("seascorpion", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/scorp/sea_scorpion_idle.oba"), 100, true, returnTrue);
         AnimationRegistry.registerAnimation("seascorpion", "Swim", new ResourceLocation(Reference.MOD_ID + ":animations/scorp/sea_scorpion_swim.oba"), 1, true, isSwimming);
-        AnimationRegistry.registerAnimation("seascorpion", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/scorp/sea_scorpion_attack.oba"), 8, true, isWaterAttacking);
+        AnimationRegistry.registerAnimation("seascorpion", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/scorp/sea_scorpion_attack.oba"), 8, true, isAttacking);
+    }
+
+    private static void registerPachyAnimations() {
+        AnimationRegistry.registerEntity(EntityPachycephalosaurus.class, "pachycephalosaurus");
+        AnimationRegistry.registerAnimation("pachycephalosaurus", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_idle.oba"), 100, true, returnTrue);
+        AnimationRegistry.registerAnimation("pachycephalosaurus", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_walk.oba"), 10, true, isWalking);
+        AnimationRegistry.registerAnimation("pachycephalosaurus", "Eat", new AIAnimationWrapper(EntityAIDinoEatGrass.name, new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_eat.oba"), 5, true));
+        AnimationRegistry.registerAnimation("pachycephalosaurus", "Run", new AIAnimationWrapper(EntityAIRunFromEntity.name, new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_run.oba"), 3, true));
     }
 }

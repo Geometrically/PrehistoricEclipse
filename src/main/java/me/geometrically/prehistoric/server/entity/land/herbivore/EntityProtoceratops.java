@@ -1,10 +1,10 @@
 package me.geometrically.prehistoric.server.entity.land.herbivore;
 
 import me.geometrically.prehistoric.server.Reference;
+import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIRunFromEntity;
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
-import net.minecraft.entity.ai.EntityAIAvoidEntity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
@@ -19,7 +19,7 @@ public class EntityProtoceratops extends EntityHerbivore{
     protected void initEntityAI()
     {
         super.initEntityAI();
-        this.tasks.addTask(3, new EntityAIAvoidEntity(this, EntityVelociraptor.class, 10.0F, 1.0D, 2.0D));
+        this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityVelociraptor.class, 10.0F, 2.0D));
     }
 
     @Override

@@ -2,16 +2,13 @@ package me.geometrically.prehistoric.server.init;
 
 import me.geometrically.prehistoric.server.PrehistoricEclipse;
 import me.geometrically.prehistoric.server.Reference;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityTyrannosaurusRex;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityArthropleura;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityPlateosaurus;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityProtoceratops;
-import me.geometrically.prehistoric.server.entity.projectile.EntityDakoArrow;
 import me.geometrically.prehistoric.server.entity.EntityEgg;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityMonolophosaurus;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityTitanoceratops;
+import me.geometrically.prehistoric.server.entity.land.carnivore.EntityTyrannosaurusRex;
+import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
+import me.geometrically.prehistoric.server.entity.land.herbivore.*;
+import me.geometrically.prehistoric.server.entity.projectile.EntityDakoArrow;
 import me.geometrically.prehistoric.server.entity.water.EntityDunkleosteus;
 import me.geometrically.prehistoric.server.entity.water.EntityPlesiosaurus;
 import me.geometrically.prehistoric.server.entity.water.EntitySaurichthys;
@@ -43,9 +40,10 @@ public class PEEntities {
         registerEntity(EntityPlateosaurus.class, "Plateosaurus", true);
         registerEntity(EntityArthropleura.class, "Arthropleura", true);
         registerEntity(EntitySaurichthys.class, "Saurichthys", true);
-        registerEntity(EntityTyrannosaurusRex.class, "TyrannosaurusRex", false);
+        registerEntity(EntityTyrannosaurusRex.class, "TyrannosaurusRex", true);
         registerEntity(EntityProtoceratops.class, "Protoceratops", true);
         registerEntity(EntitySeaScorpion.class, "SeaScorpion", true);
+        registerEntity(EntityPachycephalosaurus.class, "Pachycephalosaurus", true);
 
         registerEntity(EntityEgg.class, "Egg", false);
         registerEntity(EntityDakoArrow.class, "DakoArrow", false);
