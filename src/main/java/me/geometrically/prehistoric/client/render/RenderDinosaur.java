@@ -66,7 +66,7 @@ public class RenderDinosaur extends RenderAnimated{
         } else if(entity instanceof EntitySeaScorpion){
             GlStateManager.translate(0, -0.5F, 0);
         } else if (entity instanceof EntityPachycephalosaurus) {
-            scaleFactor = 0.7F;
+            scaleFactor = 0.5F;
         }
         GlStateManager.scale(scaleFactor, scaleFactor, scaleFactor);
         if(entity instanceof EntityAgeable){

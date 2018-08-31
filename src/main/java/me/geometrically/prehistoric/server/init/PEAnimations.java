@@ -19,12 +19,13 @@ import me.geometrically.prehistoric.server.entity.land.carnivore.EntityTyrannosa
 import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
 import me.geometrically.prehistoric.server.entity.land.herbivore.*;
 import me.geometrically.prehistoric.server.entity.water.*;
-import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.util.ResourceLocation;
 
 public class PEAnimations {
-    private static FunctionAnimationWrapper.IsActiveFunction isWalking = (entity) -> { return ObsidianAPIUtil.isEntityMoving(entity) && !entity.isSprinting() && !entity.isSneaking() && entity.onGround && ((EntityLiving)entity).getAttackTarget() == null; };
+    private static FunctionAnimationWrapper.IsActiveFunction isWalking = (entity) -> {
+        return ObsidianAPIUtil.isEntityMoving(entity) && !entity.isSprinting() && !entity.isSneaking() && entity.onGround;
+    };
     private static FunctionAnimationWrapper.IsActiveFunction returnTrue = (entity) -> { return true; };
     private static FunctionAnimationWrapper.IsActiveFunction isSwimming = (entity) -> { return entity instanceof EntityWater ? ((EntityWater) entity).isMoving() : false; };
     private static FunctionAnimationWrapper.IsActiveFunction isSitting = (entity) -> { return entity instanceof EntityTameable ? ((EntityTameable) entity).isSitting() : false; };
@@ -138,6 +139,7 @@ public class PEAnimations {
         AnimationRegistry.registerEntity(EntityPachycephalosaurus.class, "pachycephalosaurus");
         AnimationRegistry.registerAnimation("pachycephalosaurus", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_idle.oba"), 100, true, returnTrue);
         AnimationRegistry.registerAnimation("pachycephalosaurus", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_walk.oba"), 10, true, isWalking);
+        AnimationRegistry.registerAnimation("pachycephalosaurus", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_attack.oba"), 2, true, isAttacking);
         AnimationRegistry.registerAnimation("pachycephalosaurus", "Eat", new AIAnimationWrapper(EntityAIDinoEatGrass.name, new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_eat.oba"), 5, true));
         AnimationRegistry.registerAnimation("pachycephalosaurus", "Run", new AIAnimationWrapper(EntityAIRunFromEntity.name, new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_run.oba"), 3, true));
     }

@@ -41,7 +41,7 @@ public class EntityAIDinoMate extends EntityAIBase {
         else
         {
             this.targetMate = this.getNearbyMate();
-            return this.targetMate != null && this.animal.nestBlockPos() == null && this.targetMate.nestBlockPos() == null;
+            return this.targetMate != null && this.animal.nestBlockPos() == null && this.targetMate.nestBlockPos() == null && this.animal.getVariant() != this.targetMate.getVariant();
         }
     }
 

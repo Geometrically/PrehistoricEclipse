@@ -33,23 +33,26 @@ public class EntityAIRunFromEntity<T extends Entity> extends EntityAIAnimationBa
 
     @Override
     public boolean shouldExecute() {
-        List<T> list = this.entity.world.<T>getEntitiesWithinAABB(this.classToAvoid, this.entity.getEntityBoundingBox().grow((double) this.avoidDistance, 3.0D, (double) this.avoidDistance));
+        if (entity.getAttackTarget() != null) {
+            List<T> list = this.entity.world.<T>getEntitiesWithinAABB(this.classToAvoid, this.entity.getEntityBoundingBox().grow((double) this.avoidDistance, 3.0D, (double) this.avoidDistance));
 
-        if (list.isEmpty()) {
-            return false;
-        } else {
-            this.closestLivingEntity = list.get(0);
-            Vec3d vec3d = RandomPositionGenerator.findRandomTargetBlockAwayFrom(this.entity, 16, 7, new Vec3d(this.closestLivingEntity.posX, this.closestLivingEntity.posY, this.closestLivingEntity.posZ));
-
-            if (vec3d == null) {
-                return false;
-            } else if (this.closestLivingEntity.getDistanceSq(vec3d.x, vec3d.y, vec3d.z) < this.closestLivingEntity.getDistanceSqToEntity(this.entity)) {
+            if (list.isEmpty()) {
                 return false;
             } else {
-                this.entityPathEntity = this.entityPathNavigate.getPathToXYZ(vec3d.x, vec3d.y, vec3d.z);
-                return this.entityPathEntity != null;
+                this.closestLivingEntity = list.get(0);
+                Vec3d vec3d = RandomPositionGenerator.findRandomTargetBlockAwayFrom(this.entity, 16, 7, new Vec3d(this.closestLivingEntity.posX, this.closestLivingEntity.posY, this.closestLivingEntity.posZ));
+
+                if (vec3d == null) {
+                    return false;
+                } else if (this.closestLivingEntity.getDistanceSq(vec3d.x, vec3d.y, vec3d.z) < this.closestLivingEntity.getDistanceSqToEntity(this.entity)) {
+                    return false;
+                } else {
+                    this.entityPathEntity = this.entityPathNavigate.getPathToXYZ(vec3d.x, vec3d.y, vec3d.z);
+                    return this.entityPathEntity != null;
+                }
             }
         }
+        return false;
     }
 
     @Override

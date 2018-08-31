@@ -58,13 +58,13 @@ public class EntityCarnivore extends EntityDinosaur {
                     for (int i = 0; i < this.world.loadedEntityList.size(); ++i) {
                         Entity currE = (Entity) world.loadedEntityList.get(i);
 
-                        if (currE instanceof EntityMonolophosaurus && currE != this) {
+                        if (this.getClass().isInstance(currE) && currE != this) {
                             double d5 = currE.getDistanceSq(this.posX, this.posY, this.posZ);
 
                             if ((distance2 < 0.0D || d5 < distance2 * distance2) && (d4 == -1.0D || d5 < d4)) {
                                 d4 = d5;
                                 if (source.getTrueSource() instanceof EntityLivingBase)
-                                    ((EntityMonolophosaurus) currE).setAttackTarget((EntityLivingBase) source.getTrueSource());
+                                    this.getClass().cast(currE).setAttackTarget((EntityLivingBase) source.getTrueSource());
                             }
                         }
                     }

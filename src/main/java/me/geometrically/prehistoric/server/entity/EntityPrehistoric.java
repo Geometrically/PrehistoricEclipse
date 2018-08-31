@@ -91,7 +91,7 @@ public class EntityPrehistoric extends EntityTameable implements IEntityAnimated
         if (!this.world.isRemote) {
             if (this.isAttacking) {
                 this.attackingTimer++;
-                if (this.attackingTimer >= 20) {
+                if (this.attackingTimer >= 50) {
                     this.isAttacking = false;
                     this.attackingTimer = 0;
                 }
