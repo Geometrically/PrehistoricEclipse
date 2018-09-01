@@ -7,6 +7,7 @@ import com.dabigjoe.obsidianAPI.registry.AnimationRegistry;
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.EntityEgg;
 import me.geometrically.prehistoric.server.entity.EntityPrehistoric;
+import me.geometrically.prehistoric.server.entity.ai.EntityAIDefense;
 import me.geometrically.prehistoric.server.entity.ai.EntityAIDinoEatGrass;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAICall;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIEat;
@@ -98,6 +99,7 @@ public class PEAnimations {
         AnimationRegistry.registerAnimation("titanoceratops", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/titan/titanoceratops_idle.oba"), 100, true, returnTrue);
         AnimationRegistry.registerAnimation("titanoceratops", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/titan/titanoceratops_walk.oba"), 10, true, isWalking);
         AnimationRegistry.registerAnimation("titanoceratops", "Eat", new AIAnimationWrapper(EntityAIDinoEatGrass.name, new ResourceLocation(Reference.MOD_ID + ":animations/titan/titanoceratops_eat.oba"), 5, false));
+        AnimationRegistry.registerAnimation("titanoceratops", "Defense", new AIAnimationWrapper(EntityAIDefense.name, new ResourceLocation(Reference.MOD_ID + ":animations/titan/titanoceratops_defense.oba"), 1, false));
         AnimationRegistry.registerAnimation("titanoceratops", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/titan/titanoceratops_attack.oba"), 4, true, isAttacking);
     }
     private static void registerPlateoAnimations(){

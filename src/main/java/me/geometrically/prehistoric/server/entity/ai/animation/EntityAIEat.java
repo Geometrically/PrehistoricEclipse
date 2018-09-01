@@ -17,25 +17,28 @@ public class EntityAIEat extends EntityAIAnimationBase {
         this.entity = entity;
         this.execute = false;
     }
+
     @Override
     public void startExecuting() {
         super.startExecuting();
         counter = 0;
     }
+
     @Override
     public void resetTask() {
         super.resetTask();
         this.execute = false;
         counter = 0;
     }
+
     @Override
-    public boolean shouldExecute(){
+    public boolean shouldExecute() {
         return this.execute;
     }
+
     @Override
-    public boolean shouldContinueExecuting()
-    {
-        if(counter < limit) {
+    public boolean shouldContinueExecuting() {
+        if (counter < limit) {
             counter++;
             return true;
         }

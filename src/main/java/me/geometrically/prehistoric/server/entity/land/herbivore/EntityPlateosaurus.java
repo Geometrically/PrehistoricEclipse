@@ -1,6 +1,10 @@
 package me.geometrically.prehistoric.server.entity.land.herbivore;
 
 import me.geometrically.prehistoric.server.Reference;
+import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIRunFromEntity;
+import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
+import me.geometrically.prehistoric.server.entity.land.carnivore.EntityMonolophosaurus;
+import me.geometrically.prehistoric.server.entity.land.carnivore.EntityTyrannosaurusRex;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.ResourceLocation;
@@ -17,6 +21,9 @@ public class EntityPlateosaurus extends EntityHerbivore{
     protected void initEntityAI()
     {
         super.initEntityAI();
+        this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityDakotaraptor.class, 30.0F, 1.5D));
+        this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityMonolophosaurus.class, 30.0F, 1.5D));
+        this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityTyrannosaurusRex.class, 30.0F, 1.5D));
     }
 
     @Override
