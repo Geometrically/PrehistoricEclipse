@@ -15,6 +15,7 @@ import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityArthr
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityPachycephalosaurus;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityTitanoceratops;
 import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
+import me.geometrically.prehistoric.server.entity.flying.EntityTupandactylus;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
@@ -62,13 +63,15 @@ public class RenderPrehistoric extends RenderAnimated {
             GlStateManager.translate(0, 0.5F, 0);
             scaleFactor = 0.50D;
         } else if(entity instanceof EntityTyrannosaurusRex){
-            GlStateManager.translate(0, 2.0F, 0);
+            GlStateManager.translate(0, 2.5F, 0);
             scaleFactor = 3.0F;
         } else if(entity instanceof EntitySeaScorpion){
             GlStateManager.translate(0, -0.5F, 0);
         } else if (entity instanceof EntityPachycephalosaurus) {
             scaleFactor = 0.5F;
         } else if (entity instanceof EntityDragonfly) {
+            GlStateManager.translate(0, 1.0F, 0);
+        } else if (entity instanceof EntityTupandactylus) {
             GlStateManager.translate(0, 1.0F, 0);
         }
         GlStateManager.scale(scaleFactor, scaleFactor, scaleFactor);
