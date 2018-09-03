@@ -1,7 +1,7 @@
 package me.geometrically.prehistoric.server.entity;
 
 import com.dabigjoe.obsidianAPI.animation.wrapper.IEntityAnimated;
-import me.geometrically.prehistoric.server.entity.land.EntityDinosaur;
+import me.geometrically.prehistoric.server.entity.dinosaur.EntityDinosaur;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.IEntityLivingData;

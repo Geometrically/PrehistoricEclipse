@@ -1,7 +1,7 @@
 package me.geometrically.prehistoric.server.entity.ai;
 
 import me.geometrically.prehistoric.server.entity.EntityEgg;
-import me.geometrically.prehistoric.server.entity.land.EntityDinosaur;
+import me.geometrically.prehistoric.server.entity.dinosaur.EntityDinosaur;
 import me.geometrically.prehistoric.server.init.PEBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.entity.ai.EntityAIBase;

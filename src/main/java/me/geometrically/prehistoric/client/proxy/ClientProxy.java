@@ -2,21 +2,23 @@ package me.geometrically.prehistoric.client.proxy;
 
 import com.dabigjoe.obsidianAPI.file.importer.FileLoader;
 import com.dabigjoe.obsidianAPI.registry.AnimationRegistry;
-import me.geometrically.prehistoric.client.model.ModelDinosaur;
+import me.geometrically.prehistoric.client.model.ModelPrehistoric;
 import me.geometrically.prehistoric.client.render.RenderDakoArrow;
-import me.geometrically.prehistoric.client.render.RenderDinosaur;
+import me.geometrically.prehistoric.client.render.RenderPrehistoric;
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.EntityEgg;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityMonolophosaurus;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityTyrannosaurusRex;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
-import me.geometrically.prehistoric.server.entity.land.herbivore.*;
+import me.geometrically.prehistoric.server.entity.aquatic.EntityDunkleosteus;
+import me.geometrically.prehistoric.server.entity.aquatic.EntityPlesiosaurus;
+import me.geometrically.prehistoric.server.entity.aquatic.EntitySaurichthys;
+import me.geometrically.prehistoric.server.entity.aquatic.EntitySeaScorpion;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityMonolophosaurus;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyrannosaurusRex;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityVelociraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.*;
+import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
+import me.geometrically.prehistoric.server.entity.flying.EntityTupandactylus;
 import me.geometrically.prehistoric.server.entity.projectile.EntityDakoArrow;
-import me.geometrically.prehistoric.server.entity.water.EntityDunkleosteus;
-import me.geometrically.prehistoric.server.entity.water.EntityPlesiosaurus;
-import me.geometrically.prehistoric.server.entity.water.EntitySaurichthys;
-import me.geometrically.prehistoric.server.entity.water.EntitySeaScorpion;
 import me.geometrically.prehistoric.server.init.PEAnimations;
 import me.geometrically.prehistoric.server.proxy.IProxy;
 import net.minecraft.util.ResourceLocation;
@@ -32,47 +34,53 @@ public class ClientProxy implements IProxy {
     }
     @Override
     public void init() {
-        RenderDinosaur dakoRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("dakotaraptor", new ResourceLocation(Reference.MOD_ID + ":models/entity/dako/dakotaraptor.obm"), new ResourceLocation(Reference.MOD_ID + ":models/entity/dako/dakotaraptor.png"), ModelDinosaur.class));
+        RenderPrehistoric dakoRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("dakotaraptor", new ResourceLocation(Reference.MOD_ID + ":models/entity/dako/dakotaraptor.obm"), new ResourceLocation(Reference.MOD_ID + ":models/entity/dako/dakotaraptor.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityDakotaraptor.class, dakoRenderer);
 
-        RenderDinosaur monoRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("monolophosaurus", new ResourceLocation(Reference.MOD_ID + ":models/entity/mono/monolophosaurus.obm"), null, ModelDinosaur.class));
+        RenderPrehistoric monoRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("monolophosaurus", new ResourceLocation(Reference.MOD_ID + ":models/entity/mono/monolophosaurus.obm"), null, ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityMonolophosaurus.class, monoRenderer);
 
-        RenderDinosaur plesRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("plesiosaurus", new ResourceLocation(Reference.MOD_ID + ":models/entity/ples/plesiosaurus.obm"),null, ModelDinosaur.class));
+        RenderPrehistoric plesRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("plesiosaurus", new ResourceLocation(Reference.MOD_ID + ":models/entity/ples/plesiosaurus.obm"), null, ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityPlesiosaurus.class, plesRenderer);
 
-        RenderDinosaur veloRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("velociraptor", new ResourceLocation(Reference.MOD_ID + ":models/entity/velo/velociraptor_eclipse.obm"), new ResourceLocation(Reference.MOD_ID + ":models/entity/velo/velociraptor.png"), ModelDinosaur.class));
+        RenderPrehistoric veloRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("velociraptor", new ResourceLocation(Reference.MOD_ID + ":models/entity/velo/velociraptor_eclipse.obm"), new ResourceLocation(Reference.MOD_ID + ":models/entity/velo/velociraptor.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityVelociraptor.class, veloRenderer);
 
-        RenderDinosaur titanRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("titanoceratops", new ResourceLocation(Reference.MOD_ID + ":models/entity/titan/titanoceratops.obm"), new ResourceLocation(Reference.MOD_ID + ":models/entity/titan/titanoceratops.png"), ModelDinosaur.class));
+        RenderPrehistoric titanRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("titanoceratops", new ResourceLocation(Reference.MOD_ID + ":models/entity/titan/titanoceratops.obm"), new ResourceLocation(Reference.MOD_ID + ":models/entity/titan/titanoceratops.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityTitanoceratops.class, titanRenderer);
 
-        RenderDinosaur eggRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("egg", new ResourceLocation(Reference.MOD_ID + ":models/entity/egg/egg.obm"), new ResourceLocation(Reference.MOD_ID + ":models/entity/egg/egg.png"), ModelDinosaur.class), 0.0F);
+        RenderPrehistoric eggRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("egg", new ResourceLocation(Reference.MOD_ID + ":models/entity/egg/egg.obm"), new ResourceLocation(Reference.MOD_ID + ":models/entity/egg/egg.png"), ModelPrehistoric.class), 0.0F);
         RenderingRegistry.registerEntityRenderingHandler(EntityEgg.class, eggRenderer);
 
-        RenderDinosaur dunkleoRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("dunkleosteus", new ResourceLocation(Reference.MOD_ID + ":models/entity/dunkleo/dunkleosteus.obm"), new ResourceLocation(Reference.MOD_ID + ":models/entity/dunkleo/dunkleosteus.png"), ModelDinosaur.class));
+        RenderPrehistoric dunkleoRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("dunkleosteus", new ResourceLocation(Reference.MOD_ID + ":models/entity/dunkleo/dunkleosteus.obm"), new ResourceLocation(Reference.MOD_ID + ":models/entity/dunkleo/dunkleosteus.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityDunkleosteus.class, dunkleoRenderer);
 
-        RenderDinosaur plateoRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("plateosaurus", new ResourceLocation(Reference.MOD_ID + ":models/entity/plateo/plateosaurus.obm"), null, ModelDinosaur.class));
+        RenderPrehistoric plateoRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("plateosaurus", new ResourceLocation(Reference.MOD_ID + ":models/entity/plateo/plateosaurus.obm"), null, ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityPlateosaurus.class, plateoRenderer);
 
-        RenderDinosaur arthroRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("arthropleura", new ResourceLocation(Reference.MOD_ID + ":models/entity/arthro/arthropleura.obm"), null, ModelDinosaur.class));
+        RenderPrehistoric arthroRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("arthropleura", new ResourceLocation(Reference.MOD_ID + ":models/entity/arthro/arthropleura.obm"), null, ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityArthropleura.class, arthroRenderer);
 
-        RenderDinosaur sauriRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("saurichthys", new ResourceLocation(Reference.MOD_ID + ":models/entity/sauri/saurichthys.obm"), null, ModelDinosaur.class));
+        RenderPrehistoric sauriRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("saurichthys", new ResourceLocation(Reference.MOD_ID + ":models/entity/sauri/saurichthys.obm"), null, ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntitySaurichthys.class, sauriRenderer);
 
-        RenderDinosaur rexRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("tyrannosaurusrex", new ResourceLocation(Reference.MOD_ID + ":models/entity/trex/tyrannosaurus_rex.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/trex/rex.png"), ModelDinosaur.class));
+        RenderPrehistoric rexRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("tyrannosaurusrex", new ResourceLocation(Reference.MOD_ID + ":models/entity/trex/tyrannosaurus_rex.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/trex/rex.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityTyrannosaurusRex.class, rexRenderer);
 
-        RenderDinosaur protoRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("protoceratops", new ResourceLocation(Reference.MOD_ID + ":models/entity/proto/protoceratops.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/proto/male.png"), ModelDinosaur.class));
+        RenderPrehistoric protoRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("protoceratops", new ResourceLocation(Reference.MOD_ID + ":models/entity/proto/protoceratops.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/proto/male.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityProtoceratops.class, protoRenderer);
 
-        RenderDinosaur scorpRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("seascorpion", new ResourceLocation(Reference.MOD_ID + ":models/entity/scorp/sea_scorpion.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/scorp/scorpion.png"), ModelDinosaur.class));
+        RenderPrehistoric scorpRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("seascorpion", new ResourceLocation(Reference.MOD_ID + ":models/entity/scorp/sea_scorpion.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/scorp/scorpion.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntitySeaScorpion.class, scorpRenderer);
 
-        RenderDinosaur pachyRenderer = new RenderDinosaur(FileLoader.loadModelFromResources("pachycephalosaurus", new ResourceLocation(Reference.MOD_ID + ":models/entity/pachy/pachycephalosaurus.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/pachy/male.png"), ModelDinosaur.class));
+        RenderPrehistoric pachyRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("pachycephalosaurus", new ResourceLocation(Reference.MOD_ID + ":models/entity/pachy/pachycephalosaurus.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/pachy/male.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityPachycephalosaurus.class, pachyRenderer);
+
+        RenderPrehistoric dragonRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("dragonfly", new ResourceLocation(Reference.MOD_ID + ":models/entity/mazo/mazothairos.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/mazo/male.png"), ModelPrehistoric.class));
+        RenderingRegistry.registerEntityRenderingHandler(EntityDragonfly.class, dragonRenderer);
+
+        RenderPrehistoric tupanRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("tupandactylus", new ResourceLocation(Reference.MOD_ID + ":models/entity/tupan/tupandactylus.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/tupan/male.png"), ModelPrehistoric.class));
+        RenderingRegistry.registerEntityRenderingHandler(EntityTupandactylus.class, tupanRenderer);
 
         RenderingRegistry.registerEntityRenderingHandler(EntityDakoArrow.class, RenderDakoArrow::new);
 

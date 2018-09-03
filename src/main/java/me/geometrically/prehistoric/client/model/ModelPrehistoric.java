@@ -5,9 +5,9 @@ import com.dabigjoe.obsidianAPI.render.wavefront.WavefrontObject;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 
-public class ModelDinosaur extends ModelAnimated {
+public class ModelPrehistoric extends ModelAnimated {
 
-    public ModelDinosaur(String entityName, WavefrontObject wavefrontObj, ResourceLocation textureLocation) {
+    public ModelPrehistoric(String entityName, WavefrontObject wavefrontObj, ResourceLocation textureLocation) {
         super(entityName, wavefrontObj, textureLocation);
     }
 

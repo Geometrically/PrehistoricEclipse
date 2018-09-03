@@ -1,7 +1,7 @@
 package me.geometrically.prehistoric.server.world.biome;
 
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityPlateosaurus;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityPlateosaurus;
 import net.minecraft.block.BlockDirt;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;

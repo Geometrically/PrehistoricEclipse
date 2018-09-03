@@ -1,6 +1,6 @@
 package me.geometrically.prehistoric.server.world.biome;
 
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityPlateosaurus;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityPlateosaurus;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;

@@ -1,4 +1,4 @@
-package me.geometrically.prehistoric.server.entity.land.carnivore;
+package me.geometrically.prehistoric.server.entity.dinosaur.carnivore;
 
 import com.google.common.base.Predicate;
 import me.geometrically.prehistoric.server.Reference;
@@ -6,8 +6,8 @@ import me.geometrically.prehistoric.server.entity.ai.EntityAIDinoMate;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAICall;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIEat;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIStartle;
-import me.geometrically.prehistoric.server.entity.land.EntityDinosaur;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityPlateosaurus;
+import me.geometrically.prehistoric.server.entity.dinosaur.EntityDinosaur;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityPlateosaurus;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;

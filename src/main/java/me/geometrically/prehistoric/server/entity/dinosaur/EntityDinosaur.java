@@ -1,4 +1,4 @@
-package me.geometrically.prehistoric.server.entity.land;
+package me.geometrically.prehistoric.server.entity.dinosaur;
 
 import com.google.common.base.Optional;
 import me.geometrically.prehistoric.server.entity.EntityPrehistoric;

@@ -1,8 +1,8 @@
-package me.geometrically.prehistoric.server.entity.land.herbivore;
+package me.geometrically.prehistoric.server.entity.dinosaur.herbivore;
 
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIRunFromEntity;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityVelociraptor;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.ResourceLocation;

@@ -1,7 +1,7 @@
 package me.geometrically.prehistoric.server.entity.ai;
 
 import me.geometrically.prehistoric.server.entity.EntityEgg;
-import me.geometrically.prehistoric.server.entity.land.EntityDinosaur;
+import me.geometrically.prehistoric.server.entity.dinosaur.EntityDinosaur;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.util.math.AxisAlignedBB;

@@ -1,17 +1,17 @@
 package me.geometrically.prehistoric.server.entity.ai;
 
-import me.geometrically.prehistoric.server.entity.water.EntityWater;
+import me.geometrically.prehistoric.server.entity.aquatic.EntityAquatic;
 import net.minecraft.entity.ai.EntityAIBase;
 import net.minecraft.entity.ai.RandomPositionGenerator;
 import net.minecraft.util.math.Vec3d;
 
 public class EntityAISwim extends EntityAIBase {
-    private EntityWater swimmingEntity;
+    private EntityAquatic swimmingEntity;
     private double xPosition;
     private double yPosition;
     private double zPosition;
 
-    public EntityAISwim(EntityWater entity) {
+    public EntityAISwim(EntityAquatic entity) {
         this.swimmingEntity = entity;
         this.setMutexBits(0b0100);
     }

@@ -1,6 +1,6 @@
 package me.geometrically.prehistoric.server.world.biome;
 
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityProtoceratops;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityProtoceratops;
 import me.geometrically.prehistoric.server.init.PEBlocks;
 import net.minecraft.block.BlockNewLog;
 import net.minecraft.block.BlockPlanks;

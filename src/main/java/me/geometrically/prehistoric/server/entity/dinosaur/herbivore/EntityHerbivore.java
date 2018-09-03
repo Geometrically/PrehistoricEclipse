@@ -1,7 +1,7 @@
-package me.geometrically.prehistoric.server.entity.land.herbivore;
+package me.geometrically.prehistoric.server.entity.dinosaur.herbivore;
 
 import me.geometrically.prehistoric.server.entity.ai.EntityAIDinoEatGrass;
-import me.geometrically.prehistoric.server.entity.land.EntityDinosaur;
+import me.geometrically.prehistoric.server.entity.dinosaur.EntityDinosaur;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAILookIdle;
 import net.minecraft.entity.ai.EntityAISwimming;

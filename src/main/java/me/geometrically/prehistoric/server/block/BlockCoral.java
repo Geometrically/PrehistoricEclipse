@@ -43,7 +43,7 @@ public class BlockCoral extends BlockBush{
     }
     @Override
     public boolean canPlaceBlockAt(World worldIn, BlockPos pos) {
-        // Place on sand/clay, water here, water up
+        // Place on sand/clay, aquatic here, aquatic up
         Block down = worldIn.getBlockState(pos.down()).getBlock();
         Block here = worldIn.getBlockState(pos).getBlock();
         Block up = worldIn.getBlockState(pos.up()).getBlock();
@@ -52,7 +52,7 @@ public class BlockCoral extends BlockBush{
     }
     @Override
     public boolean canBlockStay(World worldIn, BlockPos pos, IBlockState state) {
-        // Stay on sand/clay with water up
+        // Stay on sand/clay with aquatic up
         Block down = worldIn.getBlockState(pos.down()).getBlock();
         Block up = worldIn.getBlockState(pos.up()).getBlock();
 

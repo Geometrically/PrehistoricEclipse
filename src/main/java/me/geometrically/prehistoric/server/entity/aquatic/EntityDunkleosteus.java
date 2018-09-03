@@ -1,9 +1,12 @@
-package me.geometrically.prehistoric.server.entity.water;
+package me.geometrically.prehistoric.server.entity.aquatic;
 
 import com.google.common.base.Predicate;
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.ai.EntityAITargetWater;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityAgeable;
+import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.passive.EntityCow;
 import net.minecraft.entity.passive.EntityPig;
@@ -15,7 +18,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityDunkleosteus extends EntityWater {
+public class EntityDunkleosteus extends EntityAquatic {
 
     public EntityDunkleosteus(World worldIn)
     {

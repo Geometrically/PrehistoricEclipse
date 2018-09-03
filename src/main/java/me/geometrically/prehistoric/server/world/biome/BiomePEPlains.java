@@ -1,6 +1,6 @@
 package me.geometrically.prehistoric.server.world.biome;
 
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityTitanoceratops;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityTitanoceratops;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.util.math.BlockPos;

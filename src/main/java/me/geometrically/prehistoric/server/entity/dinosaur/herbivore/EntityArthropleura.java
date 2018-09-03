@@ -1,4 +1,4 @@
-package me.geometrically.prehistoric.server.entity.land.herbivore;
+package me.geometrically.prehistoric.server.entity.dinosaur.herbivore;
 
 import me.geometrically.prehistoric.server.Reference;
 import net.minecraft.entity.EntityAgeable;

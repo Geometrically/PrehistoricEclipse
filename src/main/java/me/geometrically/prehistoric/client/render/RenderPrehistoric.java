@@ -1,35 +1,36 @@
 package me.geometrically.prehistoric.client.render;
 
 import com.dabigjoe.obsidianAPI.render.RenderAnimated;
-import me.geometrically.prehistoric.client.model.ModelDinosaur;
+import me.geometrically.prehistoric.client.model.ModelPrehistoric;
 import me.geometrically.prehistoric.server.entity.EntityEgg;
 import me.geometrically.prehistoric.server.entity.EntityPrehistoric;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityTyrannosaurusRex;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityArthropleura;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityPachycephalosaurus;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityTitanoceratops;
-import me.geometrically.prehistoric.server.entity.water.EntityDunkleosteus;
-import me.geometrically.prehistoric.server.entity.water.EntityPlesiosaurus;
-import me.geometrically.prehistoric.server.entity.water.EntitySaurichthys;
-import me.geometrically.prehistoric.server.entity.water.EntitySeaScorpion;
+import me.geometrically.prehistoric.server.entity.aquatic.EntityDunkleosteus;
+import me.geometrically.prehistoric.server.entity.aquatic.EntityPlesiosaurus;
+import me.geometrically.prehistoric.server.entity.aquatic.EntitySaurichthys;
+import me.geometrically.prehistoric.server.entity.aquatic.EntitySeaScorpion;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyrannosaurusRex;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityVelociraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityArthropleura;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityPachycephalosaurus;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityTitanoceratops;
+import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.ResourceLocation;
 
-public class RenderDinosaur extends RenderAnimated{
+public class RenderPrehistoric extends RenderAnimated {
 
-    private ModelDinosaur model;
+    private ModelPrehistoric model;
 
-    public RenderDinosaur(ModelDinosaur model){
+    public RenderPrehistoric(ModelPrehistoric model) {
         super(model, 0.8F);
         this.model = model;
     }
 
-    public RenderDinosaur(ModelDinosaur model, float shadowSize){
+    public RenderPrehistoric(ModelPrehistoric model, float shadowSize) {
         super(model, shadowSize);
         this.model = model;
     }
@@ -67,6 +68,8 @@ public class RenderDinosaur extends RenderAnimated{
             GlStateManager.translate(0, -0.5F, 0);
         } else if (entity instanceof EntityPachycephalosaurus) {
             scaleFactor = 0.5F;
+        } else if (entity instanceof EntityDragonfly) {
+            GlStateManager.translate(0, 1.0F, 0);
         }
         GlStateManager.scale(scaleFactor, scaleFactor, scaleFactor);
         if(entity instanceof EntityAgeable){

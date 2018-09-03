@@ -1,8 +1,8 @@
-package me.geometrically.prehistoric.server.entity.land.herbivore;
+package me.geometrically.prehistoric.server.entity.dinosaur.herbivore;
 
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.ai.EntityAIDefense;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityCarnivore;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityCarnivore;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;

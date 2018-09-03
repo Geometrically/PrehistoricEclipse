@@ -13,13 +13,15 @@ import me.geometrically.prehistoric.server.entity.ai.animation.EntityAICall;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIEat;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIRunFromEntity;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIStartle;
-import me.geometrically.prehistoric.server.entity.land.EntityDinosaur;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityMonolophosaurus;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityTyrannosaurusRex;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
-import me.geometrically.prehistoric.server.entity.land.herbivore.*;
-import me.geometrically.prehistoric.server.entity.water.*;
+import me.geometrically.prehistoric.server.entity.aquatic.*;
+import me.geometrically.prehistoric.server.entity.dinosaur.EntityDinosaur;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityMonolophosaurus;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyrannosaurusRex;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityVelociraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.*;
+import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
+import me.geometrically.prehistoric.server.entity.flying.EntityTupandactylus;
 import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.util.ResourceLocation;
 
@@ -28,12 +30,17 @@ public class PEAnimations {
         return ObsidianAPIUtil.isEntityMoving(entity) && !entity.isSprinting() && !entity.isSneaking() && entity.onGround;
     };
     private static FunctionAnimationWrapper.IsActiveFunction returnTrue = (entity) -> { return true; };
-    private static FunctionAnimationWrapper.IsActiveFunction isSwimming = (entity) -> { return entity instanceof EntityWater ? ((EntityWater) entity).isMoving() : false; };
+    private static FunctionAnimationWrapper.IsActiveFunction isSwimming = (entity) -> {
+        return entity instanceof EntityAquatic ? ((EntityAquatic) entity).isMoving() : false;
+    };
     private static FunctionAnimationWrapper.IsActiveFunction isSitting = (entity) -> { return entity instanceof EntityTameable ? ((EntityTameable) entity).isSitting() : false; };
     private static FunctionAnimationWrapper.IsActiveFunction isAttacking = (entity) -> {
         return entity instanceof EntityPrehistoric ? ((EntityPrehistoric) entity).isAttacking : false;
     };
     private static FunctionAnimationWrapper.IsActiveFunction isRunning = (entity) -> { return entity instanceof EntityDinosaur ? ((EntityDinosaur) entity).getAttackTarget() != null : false; };
+    private static FunctionAnimationWrapper.IsActiveFunction isFlying = (entity) -> {
+        return ObsidianAPIUtil.isEntityMoving(entity);
+    };
 
     public static void registerAnimations(){
         registerEggAnimations();
@@ -50,6 +57,8 @@ public class PEAnimations {
         registerProtoAnimations();
         registerSeaScorpionAnimations();
         registerPachyAnimations();
+        registerDragonAnimations();
+        registerTupanAnimations();
     }
     private static void registerEggAnimations(){
         FunctionAnimationWrapper.IsActiveFunction isHatching = (entity) -> { return entity instanceof EntityEgg ? ((EntityEgg) entity).timeUntilHatch() <= 200 : false; };
@@ -144,5 +153,16 @@ public class PEAnimations {
         AnimationRegistry.registerAnimation("pachycephalosaurus", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_attack.oba"), 2, true, isAttacking);
         AnimationRegistry.registerAnimation("pachycephalosaurus", "Eat", new AIAnimationWrapper(EntityAIDinoEatGrass.name, new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_eat.oba"), 5, true));
         AnimationRegistry.registerAnimation("pachycephalosaurus", "Run", new AIAnimationWrapper(EntityAIRunFromEntity.name, new ResourceLocation(Reference.MOD_ID + ":animations/pachy/pachycephalosaurus_run.oba"), 3, true));
+    }
+
+    private static void registerDragonAnimations() {
+        AnimationRegistry.registerEntity(EntityDragonfly.class, "dragonfly");
+        AnimationRegistry.registerAnimation("dragonfly", "Fly", new ResourceLocation(Reference.MOD_ID + ":animations/mazo/mazothairos_fly.oba"), 10, true, isFlying);
+    }
+
+    private static void registerTupanAnimations() {
+        AnimationRegistry.registerEntity(EntityTupandactylus.class, "tupandactylus");
+        AnimationRegistry.registerAnimation("tupandactylus", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/tupan/tupandactylus_idle.oba"), 100, true, returnTrue);
+        AnimationRegistry.registerAnimation("tupandactylus", "Fly", new ResourceLocation(Reference.MOD_ID + ":animations/tupan/tupandactylus_fly.oba"), 10, true, isFlying);
     }
 }

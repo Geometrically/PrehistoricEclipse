@@ -1,10 +1,10 @@
-package me.geometrically.prehistoric.server.entity.land.herbivore;
+package me.geometrically.prehistoric.server.entity.dinosaur.herbivore;
 
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIRunFromEntity;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityMonolophosaurus;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityTyrannosaurusRex;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityMonolophosaurus;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyrannosaurusRex;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.util.ResourceLocation;

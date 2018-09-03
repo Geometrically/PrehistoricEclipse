@@ -1,6 +1,6 @@
 package me.geometrically.prehistoric.server.world.biome;
 
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityVelociraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityVelociraptor;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.biome.Biome;
 

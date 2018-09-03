@@ -1,9 +1,9 @@
 package me.geometrically.prehistoric.server.world.biome;
 
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.land.carnivore.EntityMonolophosaurus;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityArthropleura;
-import me.geometrically.prehistoric.server.entity.land.herbivore.EntityPlateosaurus;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityMonolophosaurus;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityArthropleura;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityPlateosaurus;
 import me.geometrically.prehistoric.server.world.gen.feature.WorldGenDawnTree;
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.block.BlockOldLeaf;

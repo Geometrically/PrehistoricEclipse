@@ -1,9 +1,9 @@
 package me.geometrically.prehistoric.server.world.biome;
 
-import me.geometrically.prehistoric.server.entity.water.EntityDunkleosteus;
-import me.geometrically.prehistoric.server.entity.water.EntityPlesiosaurus;
-import me.geometrically.prehistoric.server.entity.water.EntitySaurichthys;
-import me.geometrically.prehistoric.server.entity.water.EntitySeaScorpion;
+import me.geometrically.prehistoric.server.entity.aquatic.EntityDunkleosteus;
+import me.geometrically.prehistoric.server.entity.aquatic.EntityPlesiosaurus;
+import me.geometrically.prehistoric.server.entity.aquatic.EntitySaurichthys;
+import me.geometrically.prehistoric.server.entity.aquatic.EntitySeaScorpion;
 import net.minecraft.world.biome.Biome;
 
 public class BiomeStream extends BiomePrehistoric {

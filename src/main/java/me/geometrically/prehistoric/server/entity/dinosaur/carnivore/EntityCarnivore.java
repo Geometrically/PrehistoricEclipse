@@ -1,9 +1,9 @@
-package me.geometrically.prehistoric.server.entity.land.carnivore;
+package me.geometrically.prehistoric.server.entity.dinosaur.carnivore;
 
 import com.google.common.base.Predicate;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAICall;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIStartle;
-import me.geometrically.prehistoric.server.entity.land.EntityDinosaur;
+import me.geometrically.prehistoric.server.entity.dinosaur.EntityDinosaur;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.*;

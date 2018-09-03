@@ -1,4 +1,4 @@
-package me.geometrically.prehistoric.server.entity.water;
+package me.geometrically.prehistoric.server.entity.aquatic;
 
 import me.geometrically.prehistoric.server.entity.EntityPrehistoric;
 import me.geometrically.prehistoric.server.entity.ai.EntityAISwim;
@@ -14,13 +14,13 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
-public class EntityWater extends EntityPrehistoric {
+public class EntityAquatic extends EntityPrehistoric {
 
-    private static final DataParameter<Boolean> MOVING = EntityDataManager.<Boolean>createKey(EntityWater.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> MOVING = EntityDataManager.<Boolean>createKey(EntityAquatic.class, DataSerializers.BOOLEAN);
 
-    public EntityWater(World world) {
+    public EntityAquatic(World world) {
         super(world);
-        this.moveHelper = new EntityWater.MoveHelper();
+        this.moveHelper = new EntityAquatic.MoveHelper();
         this.tasks.addTask(1, new EntityAISwim(this));
         this.navigator = new PathNavigateSwimmer(this, world);
     }
@@ -85,11 +85,16 @@ public class EntityWater extends EntityPrehistoric {
         this.dataManager.set(MOVING, Boolean.valueOf(moving));
     }
 
+    @Override
+    public EntityAquatic createChild(EntityAgeable entity) {
+        return new EntityAquatic(this.world);
+    }
+
     class MoveHelper extends EntityMoveHelper {
-        private EntityWater waterEntity = EntityWater.this;
+        private EntityAquatic waterEntity = EntityAquatic.this;
 
         public MoveHelper() {
-            super(EntityWater.this);
+            super(EntityAquatic.this);
         }
 
         @Override
@@ -111,10 +116,6 @@ public class EntityWater extends EntityPrehistoric {
                 this.waterEntity.setMoving(false);
             }
         }
-    }
-    @Override
-    public EntityWater createChild(EntityAgeable entity){
-        return new EntityWater(this.world);
     }
 
     @Override

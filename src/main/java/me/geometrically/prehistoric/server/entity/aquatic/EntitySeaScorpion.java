@@ -1,4 +1,4 @@
-package me.geometrically.prehistoric.server.entity.water;
+package me.geometrically.prehistoric.server.entity.aquatic;
 
 import com.google.common.base.Predicate;
 import me.geometrically.prehistoric.server.Reference;
@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntitySeaScorpion extends EntityWater {
+public class EntitySeaScorpion extends EntityAquatic {
 
     public EntitySeaScorpion(World worldIn)
     {

@@ -1,4 +1,4 @@
-package me.geometrically.prehistoric.server.entity.water;
+package me.geometrically.prehistoric.server.entity.aquatic;
 
 import me.geometrically.prehistoric.server.Reference;
 import net.minecraft.entity.EntityAgeable;
@@ -7,7 +7,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
-public class EntitySaurichthys extends EntityWater {
+public class EntitySaurichthys extends EntityAquatic {
 
     public EntitySaurichthys(World worldIn)
     {

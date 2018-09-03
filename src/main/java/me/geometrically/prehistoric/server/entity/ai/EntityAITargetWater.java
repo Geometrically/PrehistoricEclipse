@@ -2,13 +2,12 @@ package me.geometrically.prehistoric.server.entity.ai;
 
 import com.google.common.base.Function;
 import com.google.common.base.Predicate;
-import me.geometrically.prehistoric.server.entity.water.EntityWater;
+import me.geometrically.prehistoric.server.entity.aquatic.EntityAquatic;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.monster.EntityCreeper;
 import net.minecraft.entity.monster.EntitySkeleton;
 import net.minecraft.entity.monster.EntityZombie;
-import net.minecraft.entity.passive.EntityTameable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.init.Items;
@@ -20,9 +19,9 @@ import java.util.Collections;
 import java.util.List;
 
 public class EntityAITargetWater<T extends EntityLivingBase> extends EntityAINearestAttackableTarget<T> {
-    private final EntityWater tameable;
+    private final EntityAquatic tameable;
 
-    public EntityAITargetWater(EntityWater entityIn, Class<T> classTarget, boolean checkSight, Predicate<? super T > targetSelector)
+    public EntityAITargetWater(EntityAquatic entityIn, Class<T> classTarget, boolean checkSight, Predicate<? super T> targetSelector)
     {
         super(entityIn, classTarget, 10, checkSight, false, targetSelector);
         this.tameable = entityIn;
