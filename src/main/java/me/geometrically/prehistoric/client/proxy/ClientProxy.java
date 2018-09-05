@@ -82,7 +82,7 @@ public class ClientProxy implements IProxy {
         RenderPrehistoric tupanRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("tupandactylus", new ResourceLocation(Reference.MOD_ID + ":models/entity/tupan/tupandactylus.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/tupan/male.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityTupandactylus.class, tupanRenderer);
 
-        RenderingRegistry.registerEntityRenderingHandler(EntityDakoArrow.class, RenderDakoArrow::new);
+        RenderingRegistry.registerEntityRenderingHandler(EntityDakoArrow.class, renderManager -> new RenderDakoArrow(renderManager));
 
         AnimationRegistry.init();
         PEAnimations.registerAnimations();
