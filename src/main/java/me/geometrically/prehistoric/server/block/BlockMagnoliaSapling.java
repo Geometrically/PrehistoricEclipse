@@ -7,25 +7,20 @@ import net.minecraft.block.properties.PropertyEnum;
 import net.minecraft.block.properties.PropertyInteger;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
-import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IStringSerializable;
-import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenBigTree;
-import net.minecraft.world.gen.feature.WorldGenSavannaTree;
 import net.minecraft.world.gen.feature.WorldGenTrees;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.event.terraingen.TerrainGen;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 import java.util.Random;
 
@@ -69,8 +64,10 @@ public class BlockMagnoliaSapling extends BlockBush implements IGrowable {
         WorldGenerator gen = (WorldGenerator)(rand.nextInt(10) == 0 ? new WorldGenBigTree(false) : new WorldGenTrees(false));
         boolean flag = false;
         int i = 0, j = 0;
-
-        gen = new WorldGenTrees(true, 5, Blocks.LOG2.getDefaultState().withProperty(BlockNewLog.VARIANT, BlockPlanks.EnumType.DARK_OAK), PEBlocks.MAGNOLIA_LEAVES.getDefaultState(), false);
+        if (this.getType().equals("pink"))
+            gen = new WorldGenTrees(true, 5, Blocks.LOG2.getDefaultState().withProperty(BlockNewLog.VARIANT, BlockPlanks.EnumType.DARK_OAK), PEBlocks.PINK_MAGNOLIA_LEAVES.getDefaultState(), false);
+        else
+            gen = new WorldGenTrees(true, 5, Blocks.LOG2.getDefaultState().withProperty(BlockNewLog.VARIANT, BlockPlanks.EnumType.DARK_OAK), PEBlocks.MAGNOLIA_LEAVES.getDefaultState(), false);
         IBlockState iblockstate = Blocks.AIR.getDefaultState();
         world.setBlockToAir(pos.up());
         if(flag)
@@ -218,6 +215,9 @@ public class BlockMagnoliaSapling extends BlockBush implements IGrowable {
         return world.setBlockToAir(pos);
     }
 
+    public String getType() {
+        return "white";
+    }
     public enum BlockHalf implements IStringSerializable {
         UPPER, LOWER;
 
