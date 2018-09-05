@@ -27,6 +27,7 @@ public class EntityDunkleosteus extends EntityAquatic {
     }
     @Override
     protected void initEntityAI() {
+        super.initEntityAI();
         this.tasks.addTask(3, new EntityAIAttackMelee(this, 1.0D, false));
         this.targetTasks.addTask(0, new EntityAITargetWater(this, EntityLivingBase.class, true, new Predicate<Entity>() {
             public boolean apply(@Nullable Entity p_apply_1_) { return p_apply_1_ instanceof EntityPig || p_apply_1_ instanceof EntityCow || p_apply_1_ instanceof EntityPlesiosaurus || p_apply_1_ instanceof EntitySeaScorpion || p_apply_1_ instanceof EntitySaurichthys || p_apply_1_ instanceof EntityPlayer || p_apply_1_ instanceof EntitySquid; }})

@@ -1,74 +1,45 @@
 package me.geometrically.prehistoric.server.entity.ai;
 
-import net.minecraft.entity.EntityCreature;
+import me.geometrically.prehistoric.server.entity.flying.EntityAir;
 import net.minecraft.entity.ai.EntityAIBase;
-import net.minecraft.entity.ai.RandomPositionGenerator;
-import net.minecraft.util.math.Vec3d;
+import net.minecraft.entity.ai.EntityMoveHelper;
 
-import javax.annotation.Nullable;
+import java.util.Random;
 
 public class EntityAIFly extends EntityAIBase {
-    protected final EntityCreature entity;
-    protected final double speed;
-    protected double x;
-    protected double y;
-    protected double z;
-    protected int executionChance;
-    protected boolean mustUpdate;
+    private EntityAir entity;
 
-    public EntityAIFly(EntityCreature creatureIn, double speedIn) {
-        this(creatureIn, speedIn, 120);
-    }
-
-    public EntityAIFly(EntityCreature creatureIn, double speedIn, int chance) {
-        this.entity = creatureIn;
-        this.speed = speedIn;
-        this.executionChance = chance;
+    public EntityAIFly(EntityAir entity) {
         this.setMutexBits(1);
+        this.entity = entity;
     }
 
     @Override
     public boolean shouldExecute() {
-        if (!this.mustUpdate) {
-            if (this.entity.getIdleTime() >= 100)
-                return false;
-            if (this.entity.getRNG().nextInt(this.executionChance) != 0)
-                return false;
-        }
+        EntityMoveHelper moveHelper = this.entity.getMoveHelper();
 
-        Vec3d vec3d = this.getPosition();
-
-        if (vec3d == null)
-            return false;
-        else {
-            this.x = vec3d.x;
-            this.y = vec3d.y;
-            this.z = vec3d.z;
-            this.mustUpdate = false;
+        if (!moveHelper.isUpdating()) {
             return true;
+        } else {
+            double x = moveHelper.getX() - this.entity.posX;
+            double y = moveHelper.getY() - this.entity.posY;
+            double z = moveHelper.getZ() - this.entity.posZ;
+            double distance = x * x + y * y + z * z;
+            return distance < 1.0D || distance > 3600.0D;
         }
-    }
-
-    @Nullable
-    protected Vec3d getPosition() {
-        return RandomPositionGenerator.findRandomTarget(entity, 32, 32);
     }
 
     @Override
     public boolean shouldContinueExecuting() {
-        return !entity.getNavigator().noPath();
+        return false;
     }
 
     @Override
     public void startExecuting() {
-        entity.getNavigator().tryMoveToXYZ(x, y, z, speed);
-    }
-
-    public void makeUpdate() {
-        this.mustUpdate = true;
-    }
-
-    public void setExecutionChance(int newchance) {
-        this.executionChance = newchance;
+        Random random = this.entity.getRNG();
+        double x = this.entity.posX + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+        double y = this.entity.posY + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+        double z = this.entity.posZ + (double) ((random.nextFloat() * 2.0F - 1.0F) * 16.0F);
+        this.entity.getMoveHelper().setMoveTo(x, y, z, 1.0D);
     }
 }

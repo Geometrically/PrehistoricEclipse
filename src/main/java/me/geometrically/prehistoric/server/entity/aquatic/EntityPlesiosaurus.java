@@ -24,6 +24,7 @@ public class EntityPlesiosaurus extends EntityAquatic {
 
     @Override
     protected void initEntityAI() {
+        super.initEntityAI();
         this.tasks.addTask(3, new EntityAIAttackMelee(this, 1.0D, false));
         this.targetTasks.addTask(0, new EntityAITargetWater(this, EntityLivingBase.class, true, new Predicate<Entity>() {
             public boolean apply(@Nullable Entity p_apply_1_) { return p_apply_1_ instanceof EntitySaurichthys; }})

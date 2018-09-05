@@ -1,12 +1,12 @@
 package me.geometrically.prehistoric.server.entity.ai;
 
 import me.geometrically.prehistoric.server.entity.flying.EntityAir;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.ai.EntityMoveHelper;
+import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
 
 public class EntityFlyHelper extends EntityMoveHelper {
-    private final EntityAir entity;
+    private EntityAir entity;
     private int timer;
 
     public EntityFlyHelper(EntityAir entity) {
@@ -14,35 +14,43 @@ public class EntityFlyHelper extends EntityMoveHelper {
         this.entity = entity;
     }
 
+    @Override
     public void onUpdateMoveHelper() {
         if (this.action == EntityMoveHelper.Action.MOVE_TO) {
-            double x = this.posX - this.entity.posX;
-            double y = this.posY + 1D - this.entity.posY;
-            double z = this.posZ - this.entity.posZ;
-            float distance = (float) Math.sqrt(x * x + y * y + z * z);
+            double distanceX = this.posX - this.entity.posX;
+            double distanceY = this.posY - this.entity.posY;
+            double distanceZ = this.posZ - this.entity.posZ;
+            double distance = distanceX * distanceX + distanceY * distanceY + distanceZ * distanceZ;
 
             if (this.timer-- <= 0) {
-                this.timer += 1;
-                if (distance >= 1D) {
-                    this.entity.motionX += (Math.signum(x) * 0.5D - entity.motionX) * 0.1D;
-                    this.entity.motionY += (Math.signum(y) * 0.5D - entity.motionY) * 0.2D;
-                    this.entity.motionZ += (Math.signum(z) * 0.5D - entity.motionZ) * 0.1D;
-                    float angle = (float) (Math.atan2(entity.motionZ, entity.motionX) * 180.0D / Math.PI) - 90.0F;
-                    float rotation = MathHelper.wrapDegrees(angle - entity.rotationYaw);
-                    entity.rotationYaw += rotation;
+                this.timer += this.entity.getRNG().nextInt(5) + 2;
+                distance = (double) MathHelper.sqrt(distance);
+
+                if (this.isNotColliding(this.posX, this.posY, this.posZ, distance)) {
+                    this.entity.motionX += distanceX / distance * 0.1D;
+                    this.entity.motionY += distanceY / distance * 0.1D;
+                    this.entity.motionZ += distanceZ / distance * 0.1D;
                 } else {
                     this.action = EntityMoveHelper.Action.WAIT;
                 }
             }
         }
+    }
 
-        if (this.entity.getAttackTarget() != null) {
-            EntityLivingBase entitylivingbase = this.entity.getAttackTarget();
-            double distanceX = entitylivingbase.posX - this.entity.posX;
-            double distanceZ = entitylivingbase.posZ - this.entity.posZ;
-            this.entity.renderYawOffset = this.entity.rotationYaw = -((float) MathHelper.atan2(distanceX, distanceZ)) * (180F / (float) Math.PI);
-        } else if (this.action == EntityMoveHelper.Action.MOVE_TO) {
-            this.entity.renderYawOffset = this.entity.rotationYaw = -((float) MathHelper.atan2(this.entity.motionX, this.entity.motionZ)) * (180F / (float) Math.PI);
+    private boolean isNotColliding(double x, double y, double z, double distance) {
+        double d0 = (x - this.entity.posX) / distance;
+        double d1 = (y - this.entity.posY) / distance;
+        double d2 = (z - this.entity.posZ) / distance;
+        AxisAlignedBB bounds = this.entity.getEntityBoundingBox();
+
+        for (int i = 1; (double) i < distance; ++i) {
+            bounds = bounds.offset(d0, d1, d2);
+
+            if (!this.entity.world.getCollisionBoxes(this.entity, bounds).isEmpty()) {
+                return false;
+            }
         }
+
+        return true;
     }
 }
