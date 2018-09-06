@@ -36,7 +36,7 @@ public class BiomePEMesa extends BiomePrehistoric {
 
     public BiomePEMesa()
     {
-        super(new Biome.BiomeProperties("Mesa").setTemperature(2.0F).setRainfall(0.0F).setRainDisabled());
+        super(new Biome.BiomeProperties("PEMesa").setTemperature(2.0F).setRainfall(0.0F).setRainDisabled());
         this.topBlock = RED_SAND;
         this.fillerBlock = STAINED_HARDENED_CLAY;
         this.decorator.treesPerChunk = -999;
@@ -45,7 +45,7 @@ public class BiomePEMesa extends BiomePrehistoric {
         this.decorator.cactiPerChunk = 5;
         this.decorator.flowersPerChunk = 0;
 
-        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityVelociraptor.class, 4, 4, 8));
+        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityVelociraptor.class, 10, 4, 8));
     }
 
 

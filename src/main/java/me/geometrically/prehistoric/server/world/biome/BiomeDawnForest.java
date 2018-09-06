@@ -24,8 +24,8 @@ public class BiomeDawnForest extends BiomePrehistoric{
         this.decorator.grassPerChunk = 3;
         this.setColors(2054144);
 
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityDakotaraptor.class, 1, 3, 5));
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityPlateosaurus.class, 2, 3, 6));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityDakotaraptor.class, 8, 3, 5));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityPlateosaurus.class, 10, 3, 6));
         //TODO Add rex here once it actually gets added
     }
     @Override

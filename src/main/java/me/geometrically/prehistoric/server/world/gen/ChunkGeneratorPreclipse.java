@@ -324,7 +324,7 @@ public class ChunkGeneratorPreclipse implements IChunkGenerator {
     @Override
     public List getPossibleCreatures(EnumCreatureType creatureType, BlockPos pos)
     {
-        if (rand.nextInt(5) == 0) {
+        if (rand.nextInt(10) == 0) {
             Biome biome = this.world.getBiome(pos);
             return biome == null ? null : biome.getSpawnableList(creatureType);
         }
