@@ -20,7 +20,7 @@ public class BiomePEPlains extends BiomePrehistoric{
         this.decorator.flowersPerChunk = 4;
         this.decorator.grassPerChunk = 10;
         this.setColors(4625193);
-        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityTitanoceratops.class, 1, 2, 5));
+        this.spawnableMonsterList.add(new Biome.SpawnListEntry(EntityTitanoceratops.class, 1, 1, 3));
     }
 
     public BlockFlower.EnumFlowerType pickRandomFlower(Random rand, BlockPos pos)

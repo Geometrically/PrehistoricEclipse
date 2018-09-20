@@ -1,6 +1,7 @@
 package me.geometrically.prehistoric.server.entity.ai;
 
 import com.dabigjoe.obsidianAPI.animation.ai.EntityAIAnimationBase;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityHerbivore;
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.EntityLiving;
 
@@ -25,8 +26,8 @@ public class EntityAIDefense extends EntityAIAnimationBase {
     public boolean shouldExecute() {
         List<EntityLiving> list = this.entity.world.<EntityLiving>getEntitiesWithinAABB(EntityLiving.class, this.entity.getEntityBoundingBox().grow((double) this.radius, 3.0D, (double) this.radius));
         for (EntityLiving attacker : list) {
-            if (!this.entity.getClass().isInstance(attacker)) {
-                return this.entity.getRNG().nextInt(50) == 0;
+            if (!this.entity.getClass().isInstance(attacker) && !(attacker instanceof EntityHerbivore)) {
+                return true;
             }
         }
         return false;

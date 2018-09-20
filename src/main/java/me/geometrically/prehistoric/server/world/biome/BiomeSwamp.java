@@ -26,7 +26,7 @@ public class BiomeSwamp extends BiomePrehistoric {
         this.decorator.gravelPatchesPerChunk = 0;
         this.decorator.grassPerChunk = 5;
 
-        this.spawnableMonsterList.add(new SpawnListEntry(EntityPlateosaurus.class, 8, 4, 8));
+        this.spawnableMonsterList.add(new SpawnListEntry(EntityPlateosaurus.class, 10, 4, 8));
     }
 
     @Override

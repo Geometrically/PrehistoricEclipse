@@ -83,7 +83,7 @@ public class ItemHuntersBow extends PEItem {
             {
                 if (itemstack.isEmpty())
                 {
-                    itemstack = new ItemStack(PEItems.dakoArrow);
+                    itemstack = new ItemStack(PEItems.DAKOTARAPTOR_ARROW);
                 }
 
                 float f = getArrowVelocity(i);
@@ -94,7 +94,7 @@ public class ItemHuntersBow extends PEItem {
 
                     if (!worldIn.isRemote)
                     {
-                        ItemDakotaraptorArrow itemarrow = (ItemDakotaraptorArrow) (itemstack.getItem() instanceof ItemDakotaraptorArrow ? itemstack.getItem() : PEItems.dakoArrow);
+                        ItemDakotaraptorArrow itemarrow = (ItemDakotaraptorArrow) (itemstack.getItem() instanceof ItemDakotaraptorArrow ? itemstack.getItem() : PEItems.DAKOTARAPTOR_ARROW);
                         EntityDakoArrow entityarrow = itemarrow.createArrow(worldIn, itemstack, entityplayer);
                         entityarrow.setAim(entityplayer, entityplayer.rotationPitch, entityplayer.rotationYaw, 0.0F, f * 3.0F, 1.0F);
 

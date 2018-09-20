@@ -12,6 +12,10 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.List;
+
 @Mod.EventBusSubscriber(modid = Reference.MOD_ID)
 public class PEBlocks {
 
@@ -28,42 +32,31 @@ public class PEBlocks {
     public static final Block MAGNOLIA_SAPLING = new BlockMagnoliaSapling("magnolia_sapling");
     public static final Block PINK_MAGNOLIA_SAPLING = new BlockPinkMagnoliaSapling("pink_magnolia_sapling");
 
+    public static final List<Block> BLOCKS = new ArrayList<Block>();
+
+    public static void preInit() throws IllegalAccessException {
+        for (Field field : PEBlocks.class.getDeclaredFields()) {
+            Object obj = field.get(null);
+            if (obj instanceof Block) {
+                Block block = (Block) obj;
+                BLOCKS.add(block);
+            }
+        }
+    }
     @SubscribeEvent
     public static void registerBlocks(RegistryEvent.Register<Block> event) {
-        event.getRegistry().registerAll(NEST, GRAPE_VINES, RED_CORAL, BLUE_CORAL, YELLOW_CORAL, WATER_PLANT, MAGNOLIA_LEAVES, PINK_MAGNOLIA_LEAVES, MAGNOLIA_SAPLING, PINK_MAGNOLIA_SAPLING, SEA_ANEMONE, SEAWEED_SEGMENT);
+        event.getRegistry().registerAll(BLOCKS.toArray(new Block[0]));
     }
     @SubscribeEvent
     public static void registerItemBlocks(RegistryEvent.Register<Item> event) {
-        event.getRegistry().registerAll(new ItemBlock(NEST).setRegistryName(NEST.getRegistryName()),
-                new ItemBlock(GRAPE_VINES).setRegistryName(GRAPE_VINES.getRegistryName()),
-                new ItemBlock(RED_CORAL).setRegistryName(RED_CORAL.getRegistryName()),
-                new ItemBlock(BLUE_CORAL).setRegistryName(BLUE_CORAL.getRegistryName()),
-                new ItemBlock(YELLOW_CORAL).setRegistryName(YELLOW_CORAL.getRegistryName()),
-                new ItemBlock(WATER_PLANT).setRegistryName(WATER_PLANT.getRegistryName()),
-                new ItemBlock(MAGNOLIA_LEAVES).setRegistryName(MAGNOLIA_LEAVES.getRegistryName()),
-                new ItemBlock(PINK_MAGNOLIA_LEAVES).setRegistryName(PINK_MAGNOLIA_LEAVES.getRegistryName()),
-                new ItemBlock(MAGNOLIA_SAPLING).setRegistryName(MAGNOLIA_SAPLING.getRegistryName()),
-                new ItemBlock(PINK_MAGNOLIA_SAPLING).setRegistryName(PINK_MAGNOLIA_SAPLING.getRegistryName()),
-                new ItemBlock(SEA_ANEMONE).setRegistryName(SEA_ANEMONE.getRegistryName()),
-                new ItemBlock(SEAWEED_SEGMENT).setRegistryName(SEAWEED_SEGMENT.getRegistryName())
-        );
+        for (Block block : BLOCKS) {
+            event.getRegistry().register(new ItemBlock(block).setRegistryName(block.getRegistryName()));
+        }
     }
     @SubscribeEvent
     public static void registerRenders(ModelRegistryEvent event) {
-        registerRender(Item.getItemFromBlock(NEST));
-        registerRender(Item.getItemFromBlock(GRAPE_VINES));
-        registerRender(Item.getItemFromBlock(RED_CORAL));
-        registerRender(Item.getItemFromBlock(BLUE_CORAL));
-        registerRender(Item.getItemFromBlock(YELLOW_CORAL));
-        registerRender(Item.getItemFromBlock(WATER_PLANT));
-        registerRender(Item.getItemFromBlock(MAGNOLIA_LEAVES));
-        registerRender(Item.getItemFromBlock(PINK_MAGNOLIA_LEAVES));
-        registerRender(Item.getItemFromBlock(MAGNOLIA_SAPLING));
-        registerRender(Item.getItemFromBlock(PINK_MAGNOLIA_SAPLING));
-        registerRender(Item.getItemFromBlock(SEA_ANEMONE));
-        registerRender(Item.getItemFromBlock(SEAWEED_SEGMENT));
-    }
-    private static void registerRender(Item item) {
-        ModelLoader.setCustomModelResourceLocation(item, 0, new ModelResourceLocation( item.getRegistryName(), "inventory"));
+        for (Block block : BLOCKS) {
+            ModelLoader.setCustomModelResourceLocation(Item.getItemFromBlock(block), 0, new ModelResourceLocation(Item.getItemFromBlock(block).getRegistryName(), "inventory"));
+        }
     }
 }

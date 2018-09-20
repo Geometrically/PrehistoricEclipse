@@ -2,13 +2,15 @@ package me.geometrically.prehistoric.server.block;
 
 import me.geometrically.prehistoric.server.PrehistoricEclipse;
 import me.geometrically.prehistoric.server.init.PEItems;
-import net.minecraft.block.*;
+import net.minecraft.block.BlockVine;
+import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.*;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -28,7 +30,7 @@ public class BlockGrapeVine extends BlockVine {
     {
         if(!worldIn.isRemote)
         {
-            worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(PEItems.grapes, 1)));
+            worldIn.spawnEntity(new EntityItem(worldIn, pos.getX(), pos.getY(), pos.getZ(), new ItemStack(PEItems.GRAPES, 1)));
             worldIn.setBlockState(pos, this.getDefaultState());
             return true;
         }
@@ -44,12 +46,12 @@ public class BlockGrapeVine extends BlockVine {
 
         for (int i = 0; i < 3 + fortune; ++i)
         {
-            drops.add(new ItemStack(PEItems.grapes, 1, 0));
+            drops.add(new ItemStack(PEItems.GRAPES, 1, 0));
         }
     }
     public Item getItemDropped(IBlockState state, Random rand, int fortune)
     {
-        return PEItems.grapes;
+        return PEItems.GRAPES;
     }
 }
 

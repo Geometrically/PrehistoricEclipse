@@ -29,7 +29,7 @@ public class EntityDakoArrow extends EntityTippedArrow implements IThrowableEnti
 
     @Override
     protected ItemStack getArrowStack() {
-        return new ItemStack(PEItems.dakoArrow);
+        return new ItemStack(PEItems.DAKOTARAPTOR_ARROW);
     }
 
     @Override

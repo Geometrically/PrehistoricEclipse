@@ -26,7 +26,6 @@ public class BiomeDawnForest extends BiomePrehistoric{
 
         this.spawnableMonsterList.add(new SpawnListEntry(EntityDakotaraptor.class, 8, 3, 5));
         this.spawnableMonsterList.add(new SpawnListEntry(EntityPlateosaurus.class, 10, 3, 6));
-        //TODO Add rex here once it actually gets added
     }
     @Override
     public void genTerrainBlocks(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal)
