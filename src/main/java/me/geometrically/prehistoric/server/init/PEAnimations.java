@@ -128,9 +128,10 @@ public class PEAnimations {
     private static void registerRexAnimations(){
         AnimationRegistry.registerEntity(EntityTyrannosaurusRex.class, "tyrannosaurusrex");
         AnimationRegistry.registerAnimation("tyrannosaurusrex", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/trex/rex_idle.oba"), 100, true, returnTrue);
-        AnimationRegistry.registerAnimation("tyrannosaurusrex", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/trex/rex_walk.oba"), 10, true, isWalking);
+        //AnimationRegistry.registerAnimation("tyrannosaurusrex", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/trex/rex_walk_temp.oba"), 10, true, isWalking);
         AnimationRegistry.registerAnimation("tyrannosaurusrex", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/trex/rex_attack.oba"), 8, true, isAttacking);
         AnimationRegistry.registerAnimation("tyrannosaurusrex", "Startle", new AIAnimationWrapper(EntityAIStartle.name, new ResourceLocation(Reference.MOD_ID + ":animations/trex/rex_roar.oba"), 5, false));
+
     }
     private static void registerProtoAnimations() {
         AnimationRegistry.registerEntity(EntityProtoceratops.class, "protoceratops");

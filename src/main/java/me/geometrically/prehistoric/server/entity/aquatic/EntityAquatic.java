@@ -85,7 +85,7 @@ public class EntityAquatic extends EntityPrehistoric {
 
     @Override
     public boolean getCanSpawnHere() {
-        return true;
+        return this.posY > 45.0D && this.posY < (double) this.world.getSeaLevel() && super.getCanSpawnHere();
     }
 
     @Override

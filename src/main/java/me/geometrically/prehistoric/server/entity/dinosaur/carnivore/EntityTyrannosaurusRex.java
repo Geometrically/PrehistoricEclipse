@@ -19,17 +19,15 @@ import net.minecraft.world.World;
 
 import javax.annotation.Nullable;
 
-public class EntityTyrannosaurusRex extends EntityCarnivore{
+public class EntityTyrannosaurusRex extends EntityCarnivore {
 
-    public EntityTyrannosaurusRex(World worldIn)
-    {
+    public EntityTyrannosaurusRex(World worldIn) {
         super(worldIn);
-        this.setSize(3.0F, 6.0F);
+        this.setSize(2.0F, 6.0F);
         this.setTamed(false);
     }
     @Override
-    protected void initEntityAI()
-    {
+    protected void initEntityAI() {
         super.initEntityAI();
         this.aiCall = new EntityAICall(this);
         this.aiEat = new EntityAIEat(this);
@@ -47,26 +45,19 @@ public class EntityTyrannosaurusRex extends EntityCarnivore{
     }
 
     @Override
-    protected void applyEntityAttributes()
-    {
+    protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
         this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
     }
 
-    public int getMaxSpawnedInChunk()
-    {
-        return 8;
-    }
     @Override
-    public EntityTyrannosaurusRex createChild(EntityAgeable ageable)
-    {
+    public EntityTyrannosaurusRex createChild(EntityAgeable ageable) {
         return new EntityTyrannosaurusRex(this.world);
     }
-
     @Override
-    public ResourceLocation getDefaultTexture(){
+    public ResourceLocation getDefaultTexture() {
         return new ResourceLocation(Reference.MOD_ID + ":models/entity/trex/rex.png");
     }
 }

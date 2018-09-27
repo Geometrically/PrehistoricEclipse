@@ -2,7 +2,6 @@ package me.geometrically.prehistoric.server.world;
 
 import me.geometrically.prehistoric.server.init.PEBiomes;
 import me.geometrically.prehistoric.server.world.gen.layer.GenLayerPreclipse;
-import net.minecraft.init.Biomes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldType;
@@ -35,9 +34,6 @@ public class BiomeProviderPreclipse extends BiomeProvider {
         biomesToSpawnIn.add(PEBiomes.DESERT);
         biomesToSpawnIn.add(PEBiomes.MAGNOLIA_FOREST);
         biomesToSpawnIn.add(PEBiomes.PLAINS);
-        biomesToSpawnIn.add(PEBiomes.OCEAN);
-        biomesToSpawnIn.add(PEBiomes.DEEP_OCEAN);
-        biomesToSpawnIn.add(PEBiomes.STREAM);
     }
 
     public BiomeProviderPreclipse(long par1, WorldType par3WorldType)
