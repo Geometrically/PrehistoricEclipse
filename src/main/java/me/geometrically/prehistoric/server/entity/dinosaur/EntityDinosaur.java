@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
 public class EntityDinosaur extends EntityPrehistoric {
 
     private static final DataParameter<Optional<BlockPos>> NEST_BLOCK_POS = EntityDataManager.<Optional<BlockPos>>createKey(EntityDinosaur.class, DataSerializers.OPTIONAL_BLOCK_POS);
-
+    private static final DataParameter<Boolean> IS_PACK_LEADER = EntityDataManager.<Boolean>createKey(EntityDinosaur.class, DataSerializers.BOOLEAN);
     protected EntityAIEat aiEat;
 
     public EntityDinosaur(World world){
@@ -91,8 +91,7 @@ public class EntityDinosaur extends EntityPrehistoric {
                     }
                 }
             }
-
-            if (this.isOwner(player) && !this.world.isRemote && !this.isBreedingItem(itemstack)) {
+            if (this.isOwner(player) && !this.world.isRemote && !this.isBreedingItem(itemstack) && this.world.isRemote) {
                 this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
                 this.navigator.clearPathEntity();
@@ -132,7 +131,9 @@ public class EntityDinosaur extends EntityPrehistoric {
     public void writeEntityToNBT(NBTTagCompound compound)
     {
         super.writeEntityToNBT(compound);
-        if(nestBlockPos() != null) compound.setTag("nest" ,NBTUtil.createPosTag(nestBlockPos()));
+        if (nestBlockPos() != null) compound.setTag("nest", NBTUtil.createPosTag(nestBlockPos()));
+
+
     }
 
     public void readEntityFromNBT(NBTTagCompound compound)

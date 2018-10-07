@@ -31,6 +31,9 @@ public class PEBlocks {
     public static final Block PINK_MAGNOLIA_LEAVES = new BlockMagnoliaLeaves("pink_magnolia_leaves");
     public static final Block MAGNOLIA_SAPLING = new BlockMagnoliaSapling("magnolia_sapling");
     public static final Block PINK_MAGNOLIA_SAPLING = new BlockPinkMagnoliaSapling("pink_magnolia_sapling");
+    public static final Block TIME_MACHINE = new BlockTimeMachine();
+    public static final Block CHAMBER = new BlockChamber();
+    public static final Block INCUBATOR = new BlockIncubator();
 
     public static final List<Block> BLOCKS = new ArrayList<Block>();
 
