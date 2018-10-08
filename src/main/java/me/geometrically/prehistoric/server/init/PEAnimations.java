@@ -113,6 +113,10 @@ public class PEAnimations {
         AnimationRegistry.registerEntity(EntityPlateosaurus.class, "plateosaurus");
         AnimationRegistry.registerAnimation("plateosaurus", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/plateo/plateosaurus_idle.oba"), 100, true, returnTrue);
         AnimationRegistry.registerAnimation("plateosaurus", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/plateo/plateosaurus_walk.oba"), 10, true, isWalking);
+        AnimationRegistry.registerAnimation("plateosaurus", "Eat", new AIAnimationWrapper(EntityAIDinoEatGrass.name, new ResourceLocation(Reference.MOD_ID + ":animations/plateo/plateosaurus_eat.oba"), 5, false));
+        AnimationRegistry.registerAnimation("plateosaurus", "Run", new AIAnimationWrapper(EntityAIRunFromEntity.name, new ResourceLocation(Reference.MOD_ID + ":animations/plateo/plateosaurus_run.oba"), 3, true));
+        AnimationRegistry.registerAnimation("plateosaurus", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/plateo/plateosaurus_attack.oba"), 4, true, isAttacking);
+
     }
     private static void registerArthroAnimations(){
         AnimationRegistry.registerEntity(EntityArthropleura.class, "arthropleura");

@@ -2,6 +2,7 @@ package me.geometrically.prehistoric.server.entity.dinosaur.herbivore;
 
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIRunFromEntity;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityAllosaurus;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityMonolophosaurus;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyrannosaurusRex;
@@ -24,6 +25,7 @@ public class EntityPlateosaurus extends EntityHerbivore{
         this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityDakotaraptor.class, 30.0F, 1.5D));
         this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityMonolophosaurus.class, 30.0F, 1.5D));
         this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityTyrannosaurusRex.class, 30.0F, 1.5D));
+        this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityAllosaurus.class, 30.0F, 1.5D));
     }
 
     @Override
