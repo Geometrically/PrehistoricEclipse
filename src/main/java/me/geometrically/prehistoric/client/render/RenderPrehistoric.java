@@ -8,6 +8,7 @@ import me.geometrically.prehistoric.server.entity.aquatic.EntityDunkleosteus;
 import me.geometrically.prehistoric.server.entity.aquatic.EntityPlesiosaurus;
 import me.geometrically.prehistoric.server.entity.aquatic.EntitySaurichthys;
 import me.geometrically.prehistoric.server.entity.aquatic.EntitySeaScorpion;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityAllosaurus;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyrannosaurusRex;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityVelociraptor;
@@ -73,6 +74,9 @@ public class RenderPrehistoric extends RenderAnimated {
             GlStateManager.translate(0, 1.0F, 0);
         } else if (entity instanceof EntityTupandactylus) {
             GlStateManager.translate(0, 1.0F, 0);
+        } else if (entity instanceof EntityAllosaurus){
+            GlStateManager.translate(0, 1.5F, 0);
+            scaleFactor= 2.3F;
         }
         GlStateManager.scale(scaleFactor, scaleFactor, scaleFactor);
         if(entity instanceof EntityAgeable){

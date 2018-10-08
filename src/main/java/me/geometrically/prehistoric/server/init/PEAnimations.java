@@ -15,10 +15,7 @@ import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIRunFromEn
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIStartle;
 import me.geometrically.prehistoric.server.entity.aquatic.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.EntityDinosaur;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityMonolophosaurus;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyrannosaurusRex;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityVelociraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.*;
 import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
 import me.geometrically.prehistoric.server.entity.flying.EntityTupandactylus;
@@ -59,6 +56,7 @@ public class PEAnimations {
         registerPachyAnimations();
         registerDragonAnimations();
         registerTupanAnimations();
+        registerAlloAnimations();
     }
     private static void registerEggAnimations(){
         FunctionAnimationWrapper.IsActiveFunction isHatching = (entity) -> { return entity instanceof EntityEgg ? ((EntityEgg) entity).timeUntilHatch() <= 200 : false; };
@@ -166,5 +164,15 @@ public class PEAnimations {
         AnimationRegistry.registerEntity(EntityTupandactylus.class, "tupandactylus");
         AnimationRegistry.registerAnimation("tupandactylus", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/tupan/tupandactylus_idle.oba"), 100, true, returnTrue);
         AnimationRegistry.registerAnimation("tupandactylus", "Fly", new ResourceLocation(Reference.MOD_ID + ":animations/tupan/tupandactylus_fly.oba"), 10, true, isFlying);
+    }
+    private static void registerAlloAnimations(){
+        AnimationRegistry.registerEntity(EntityAllosaurus.class, "allosaurus");
+        AnimationRegistry.registerAnimation("allosaurus", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/allo/allosaurus_idle.oba"), 100, true, returnTrue);
+        AnimationRegistry.registerAnimation("allosaurus", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/allo/allosaurus_walk.oba"), 10, true, isWalking);
+        AnimationRegistry.registerAnimation("allosaurus", "Run", new ResourceLocation(Reference.MOD_ID + ":animations/allo/allosaurus_run.oba"), 8, true, isRunning);
+        AnimationRegistry.registerAnimation("allosaurus", "Sit", new ResourceLocation(Reference.MOD_ID + ":animations/allo/allosaurus_sit.oba"), 0, true, isSitting);
+        AnimationRegistry.registerAnimation("allosaurus", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/allo/allosaurus_attack.oba"), 4, true, isAttacking);
+        AnimationRegistry.registerAnimation("allosaurus", "Eat", new AIAnimationWrapper(EntityAIEat.name, new ResourceLocation(Reference.MOD_ID + ":animations/allo/allosaurus_eat.oba"), 5, false));
+        AnimationRegistry.registerAnimation("allosaurus", "Startle", new AIAnimationWrapper(EntityAIStartle.name, new ResourceLocation(Reference.MOD_ID + ":animations/allo/allosaurus_roar.oba"), 5, false));
     }
 }

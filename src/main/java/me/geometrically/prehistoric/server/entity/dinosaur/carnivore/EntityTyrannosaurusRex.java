@@ -24,7 +24,6 @@ public class EntityTyrannosaurusRex extends EntityCarnivore {
     public EntityTyrannosaurusRex(World worldIn) {
         super(worldIn);
         this.setSize(2.0F, 6.0F);
-        this.setTamed(false);
     }
     @Override
     protected void initEntityAI() {
@@ -48,8 +47,8 @@ public class EntityTyrannosaurusRex extends EntityCarnivore {
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.30000001192092896D);
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(30.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(8.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(65.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(18.0D);
     }
 
     @Override

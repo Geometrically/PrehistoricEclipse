@@ -29,8 +29,9 @@ public class EntityDinosaur extends EntityPrehistoric {
     private static final DataParameter<Boolean> IS_PACK_LEADER = EntityDataManager.<Boolean>createKey(EntityDinosaur.class, DataSerializers.BOOLEAN);
     protected EntityAIEat aiEat;
 
-    public EntityDinosaur(World world){
+    public EntityDinosaur(World world) {
         super(world);
+        this.setTamed(false);
     }
 
     @Override

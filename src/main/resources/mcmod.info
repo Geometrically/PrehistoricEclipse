@@ -3,14 +3,14 @@
   "modid": "pe",
   "name": "Prehistoric Eclipse",
   "description": "Venture into the times of the dinosaurs!",
-  "version": "0.1 BETA",
-  "mcversion": "1.12",
+  "version": "0.8 BETA",
+  "mcversion": "1.12.2",
   "url": "",
   "updateUrl": "",
-  "authorList": ["Geometrically"],
+  "authorList": ["Geometrically", "Fluffy Taco"],
   "credits": "Prehistoric Eclipse Mod Team",
   "logoFile": "",
   "screenshots": [],
-  "dependencies": []
+  "dependencies": ["forge", "obsidian_api"]
 }
 ]

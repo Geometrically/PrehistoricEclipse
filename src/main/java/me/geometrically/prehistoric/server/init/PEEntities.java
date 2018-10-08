@@ -7,10 +7,7 @@ import me.geometrically.prehistoric.server.entity.aquatic.EntityDunkleosteus;
 import me.geometrically.prehistoric.server.entity.aquatic.EntityPlesiosaurus;
 import me.geometrically.prehistoric.server.entity.aquatic.EntitySaurichthys;
 import me.geometrically.prehistoric.server.entity.aquatic.EntitySeaScorpion;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityMonolophosaurus;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyrannosaurusRex;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityVelociraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.*;
 import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
 import me.geometrically.prehistoric.server.entity.flying.EntityTupandactylus;
@@ -48,6 +45,7 @@ public class PEEntities {
         registerEntity(EntityPachycephalosaurus.class, "Pachycephalosaurus", true);
         registerEntity(EntityDragonfly.class, "Dragonfly", true);
         registerEntity(EntityTupandactylus.class, "Tupandactylus", true);
+        registerEntity(EntityAllosaurus.class, "Allosaurus", true);
 
         registerEntity(EntityEgg.class, "Egg", false);
         registerEntity(EntityDakoArrow.class, "DakoArrow", false);

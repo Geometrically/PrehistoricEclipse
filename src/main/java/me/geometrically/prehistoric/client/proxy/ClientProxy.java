@@ -11,10 +11,7 @@ import me.geometrically.prehistoric.server.entity.aquatic.EntityDunkleosteus;
 import me.geometrically.prehistoric.server.entity.aquatic.EntityPlesiosaurus;
 import me.geometrically.prehistoric.server.entity.aquatic.EntitySaurichthys;
 import me.geometrically.prehistoric.server.entity.aquatic.EntitySeaScorpion;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityMonolophosaurus;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyrannosaurusRex;
-import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityVelociraptor;
+import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.*;
 import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
 import me.geometrically.prehistoric.server.entity.flying.EntityTupandactylus;
@@ -81,6 +78,9 @@ public class ClientProxy implements IProxy {
 
         RenderPrehistoric tupanRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("tupandactylus", new ResourceLocation(Reference.MOD_ID + ":models/entity/tupan/tupandactylus.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/tupan/male.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityTupandactylus.class, tupanRenderer);
+
+        RenderPrehistoric alloRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("allosaurus", new ResourceLocation(Reference.MOD_ID + ":models/entity/allo/allosaurus.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/allo/male.png"), ModelPrehistoric.class));
+        RenderingRegistry.registerEntityRenderingHandler(EntityAllosaurus.class, alloRenderer);
 
         RenderingRegistry.registerEntityRenderingHandler(EntityDakoArrow.class, renderManager -> new RenderDakoArrow(renderManager));
 
