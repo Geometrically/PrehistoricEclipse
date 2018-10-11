@@ -3,6 +3,7 @@ package me.geometrically.prehistoric.server.entity.dinosaur.carnivore;
 import com.google.common.base.Predicate;
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.ai.EntityAIDinoMate;
+import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIEat;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIStartle;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityProtoceratops;
 import net.minecraft.entity.Entity;
@@ -26,8 +27,10 @@ public class EntityVelociraptor extends EntityCarnivore {
     protected void initEntityAI()
     {
         this.aiStartle = new EntityAIStartle(this);
+        this.aiEat = new EntityAIEat(this);
         this.tasks.addTask(4, new EntityAIDinoMate(this, 1.0D));
         this.tasks.addTask(7, new EntityAIDinoMate(this, 1.0D));
+        this.tasks.addTask(2, this.aiEat);
         this.tasks.addTask(5, this.aiStartle);
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityPlayer.class, 15.0F));
         this.targetTasks.addTask(5, new EntityAITargetNonTamed(this, EntityProtoceratops.class, true, new Predicate<Entity>() {

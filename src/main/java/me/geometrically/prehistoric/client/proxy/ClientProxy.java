@@ -82,6 +82,9 @@ public class ClientProxy implements IProxy {
         RenderPrehistoric alloRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("allosaurus", new ResourceLocation(Reference.MOD_ID + ":models/entity/allo/allosaurus.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/allo/male.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntityAllosaurus.class, alloRenderer);
 
+        RenderPrehistoric saurRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("sauroposeidon", new ResourceLocation(Reference.MOD_ID + ":models/entity/saur/sauroposeidon.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/saur/male.png"), ModelPrehistoric.class));
+        RenderingRegistry.registerEntityRenderingHandler(EntitySauroposeidon.class, saurRenderer);
+
         RenderingRegistry.registerEntityRenderingHandler(EntityDakoArrow.class, renderManager -> new RenderDakoArrow(renderManager));
 
         AnimationRegistry.init();

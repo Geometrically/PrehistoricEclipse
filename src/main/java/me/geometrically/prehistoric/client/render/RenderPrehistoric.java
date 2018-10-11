@@ -14,6 +14,7 @@ import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyran
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityVelociraptor;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityArthropleura;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityPachycephalosaurus;
+import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntitySauroposeidon;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityTitanoceratops;
 import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
 import me.geometrically.prehistoric.server.entity.flying.EntityTupandactylus;
@@ -65,7 +66,7 @@ public class RenderPrehistoric extends RenderAnimated {
             scaleFactor = 0.50D;
         } else if(entity instanceof EntityTyrannosaurusRex){
             GlStateManager.translate(0, 2.5F, 0);
-            scaleFactor = 3.0F;
+            scaleFactor = 3.3F;
         } else if(entity instanceof EntitySeaScorpion){
             GlStateManager.translate(0, -0.5F, 0);
         } else if (entity instanceof EntityPachycephalosaurus) {
@@ -75,14 +76,20 @@ public class RenderPrehistoric extends RenderAnimated {
         } else if (entity instanceof EntityTupandactylus) {
             GlStateManager.translate(0, 1.0F, 0);
         } else if (entity instanceof EntityAllosaurus){
-            GlStateManager.translate(0, 1.5F, 0);
+            GlStateManager.translate(0, 1.8F, 0);
             scaleFactor= 2.3F;
+        } else if (entity instanceof EntitySauroposeidon) {
+            GlStateManager.translate(0, 2.0F, 0);
+            scaleFactor = 2.5F;
         }
         GlStateManager.scale(scaleFactor, scaleFactor, scaleFactor);
         if(entity instanceof EntityAgeable){
             EntityAgeable ageable = (EntityAgeable)entity;
             if(entity.isChild()){
                 GlStateManager.scale(0.5F, 0.5F, 0.5F);
+                if (entity instanceof EntityTyrannosaurusRex || entity instanceof EntityAllosaurus || entity instanceof EntityDragonfly) {
+                    GlStateManager.translate(0, -0.7F, 0);
+                }
             } else {
                 GlStateManager.scale(1.0F, 1.0F, 1.0F);
             }

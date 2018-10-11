@@ -46,6 +46,7 @@ public class PEEntities {
         registerEntity(EntityDragonfly.class, "Dragonfly", true);
         registerEntity(EntityTupandactylus.class, "Tupandactylus", true);
         registerEntity(EntityAllosaurus.class, "Allosaurus", true);
+        registerEntity(EntitySauroposeidon.class, "Sauroposeidon", true);
 
         registerEntity(EntityEgg.class, "Egg", false);
         registerEntity(EntityDakoArrow.class, "DakoArrow", false);

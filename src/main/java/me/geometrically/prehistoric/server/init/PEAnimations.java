@@ -57,6 +57,7 @@ public class PEAnimations {
         registerDragonAnimations();
         registerTupanAnimations();
         registerAlloAnimations();
+        registerSauroposeidonAnimations();
     }
     private static void registerEggAnimations(){
         FunctionAnimationWrapper.IsActiveFunction isHatching = (entity) -> { return entity instanceof EntityEgg ? ((EntityEgg) entity).timeUntilHatch() <= 200 : false; };
@@ -100,6 +101,7 @@ public class PEAnimations {
         AnimationRegistry.registerAnimation("velociraptor", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/velo/velociraptor_walk.oba"), 10, true, isWalking);
         AnimationRegistry.registerAnimation("velociraptor", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/velo/velociraptor_attack.oba"), 4, true, isAttacking);
         AnimationRegistry.registerAnimation("velociraptor", "Startle", new AIAnimationWrapper(EntityAIStartle.name, new ResourceLocation(Reference.MOD_ID + ":animations/velo/velociraptor_threaten.oba"), 5, false));
+        AnimationRegistry.registerAnimation("velociraptor", "Eat", new AIAnimationWrapper(EntityAIEat.name, new ResourceLocation(Reference.MOD_ID + ":animations/velo/velociraptor_eat.oba"), 5, false));
     }
     private static void registerTitanAnimations(){
         AnimationRegistry.registerEntity(EntityTitanoceratops.class, "titanoceratops");
@@ -113,7 +115,6 @@ public class PEAnimations {
         AnimationRegistry.registerEntity(EntityPlateosaurus.class, "plateosaurus");
         AnimationRegistry.registerAnimation("plateosaurus", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/plateo/plateosaurus_idle.oba"), 100, true, returnTrue);
         AnimationRegistry.registerAnimation("plateosaurus", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/plateo/plateosaurus_walk.oba"), 10, true, isWalking);
-        AnimationRegistry.registerAnimation("plateosaurus", "Eat", new AIAnimationWrapper(EntityAIDinoEatGrass.name, new ResourceLocation(Reference.MOD_ID + ":animations/plateo/plateosaurus_eat.oba"), 5, false));
         AnimationRegistry.registerAnimation("plateosaurus", "Run", new AIAnimationWrapper(EntityAIRunFromEntity.name, new ResourceLocation(Reference.MOD_ID + ":animations/plateo/plateosaurus_run.oba"), 3, true));
         AnimationRegistry.registerAnimation("plateosaurus", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/plateo/plateosaurus_attack.oba"), 4, true, isAttacking);
 
@@ -178,5 +179,11 @@ public class PEAnimations {
         AnimationRegistry.registerAnimation("allosaurus", "Attack", new ResourceLocation(Reference.MOD_ID + ":animations/allo/allosaurus_attack.oba"), 4, true, isAttacking);
         AnimationRegistry.registerAnimation("allosaurus", "Eat", new AIAnimationWrapper(EntityAIEat.name, new ResourceLocation(Reference.MOD_ID + ":animations/allo/allosaurus_eat.oba"), 5, false));
         AnimationRegistry.registerAnimation("allosaurus", "Startle", new AIAnimationWrapper(EntityAIStartle.name, new ResourceLocation(Reference.MOD_ID + ":animations/allo/allosaurus_roar.oba"), 5, false));
+    }
+
+    private static void registerSauroposeidonAnimations() {
+        AnimationRegistry.registerEntity(EntitySauroposeidon.class, "sauroposeidon");
+        AnimationRegistry.registerAnimation("sauroposeidon", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/saur/sauroposiedon_idle.oba"), 100, true, returnTrue);
+        AnimationRegistry.registerAnimation("sauroposeidon", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/saur/sauroposiedon_walk.oba"), 10, true, isWalking);
     }
 }

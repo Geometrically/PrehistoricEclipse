@@ -10,8 +10,6 @@ import me.geometrically.prehistoric.server.entity.ai.animation.EntityAICall;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIEat;
 import me.geometrically.prehistoric.server.entity.ai.animation.EntityAIStartle;
 import me.geometrically.prehistoric.server.entity.aquatic.EntityAquatic;
-import me.geometrically.prehistoric.server.entity.dinosaur.EntityDinosaur;
-import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.EntityPlateosaurus;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLiving;
@@ -46,7 +44,7 @@ public class EntityAllosaurus extends EntityCarnivore{
         this.tasks.addTask(10, new EntityAIWatchClosest(this, EntityPlayer.class, 18.0F));
         this.targetTasks.addTask(5, new EntityAITargetNonTamed(this, EntityLiving.class, true, new Predicate<Entity>() {
             public boolean apply(@Nullable Entity entity) {
-                return !(entity instanceof EntityAquatic);
+                return !(entity instanceof EntityAquatic) && !(entity instanceof EntityAllosaurus);
             }
         }));
     }

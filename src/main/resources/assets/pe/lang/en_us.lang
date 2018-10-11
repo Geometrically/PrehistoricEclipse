@@ -29,6 +29,8 @@ entity.SeaScorpion.name=Sea Scorpion
 entity.Pachycephalosaurus.name=Pachycephalosaurus
 entity.Dragonfly.name=Mazothairos
 entity.Tupandactylus.name=Tupandactylus
+entity.Allosaurus.name=Allosaurus
+entity.Sauroposeidon.name=Sauroposeidon
 
 tile.nest.name=Nest
 tile.grape_vine.name=Grape Vine
