@@ -17,6 +17,7 @@ import me.geometrically.prehistoric.server.entity.aquatic.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.EntityDinosaur;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.*;
+import me.geometrically.prehistoric.server.entity.flying.EntityAir;
 import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
 import me.geometrically.prehistoric.server.entity.flying.EntityTupandactylus;
 import net.minecraft.entity.passive.EntityTameable;
@@ -38,7 +39,7 @@ public class PEAnimations {
         return entity instanceof EntityDinosaur ? ((EntityDinosaur) entity).getAttackTarget() != null && ((EntityDinosaur) entity).isMoving() : false;
     };
     private static FunctionAnimationWrapper.IsActiveFunction isFlying = (entity) -> {
-        return ObsidianAPIUtil.isEntityMoving(entity);
+        return ((EntityAir) entity).isMoving();
     };
 
     public static void registerAnimations(){
