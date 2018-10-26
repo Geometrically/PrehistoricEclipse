@@ -34,7 +34,9 @@ public class PEAnimations {
     private static FunctionAnimationWrapper.IsActiveFunction isAttacking = (entity) -> {
         return entity instanceof EntityPrehistoric ? ((EntityPrehistoric) entity).isAttacking : false;
     };
-    private static FunctionAnimationWrapper.IsActiveFunction isRunning = (entity) -> { return entity instanceof EntityDinosaur ? ((EntityDinosaur) entity).getAttackTarget() != null : false; };
+    private static FunctionAnimationWrapper.IsActiveFunction isRunning = (entity) -> {
+        return entity instanceof EntityDinosaur ? ((EntityDinosaur) entity).getAttackTarget() != null && ((EntityDinosaur) entity).isMoving() : false;
+    };
     private static FunctionAnimationWrapper.IsActiveFunction isFlying = (entity) -> {
         return ObsidianAPIUtil.isEntityMoving(entity);
     };
