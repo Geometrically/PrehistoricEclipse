@@ -3,10 +3,7 @@ package me.geometrically.prehistoric.server.init;
 import me.geometrically.prehistoric.server.PrehistoricEclipse;
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.EntityEgg;
-import me.geometrically.prehistoric.server.entity.aquatic.EntityDunkleosteus;
-import me.geometrically.prehistoric.server.entity.aquatic.EntityPlesiosaurus;
-import me.geometrically.prehistoric.server.entity.aquatic.EntitySaurichthys;
-import me.geometrically.prehistoric.server.entity.aquatic.EntitySeaScorpion;
+import me.geometrically.prehistoric.server.entity.aquatic.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.*;
 import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
@@ -47,6 +44,7 @@ public class PEEntities {
         registerEntity(EntityTupandactylus.class, "Tupandactylus", true);
         registerEntity(EntityAllosaurus.class, "Allosaurus", true);
         registerEntity(EntitySauroposeidon.class, "Sauroposeidon", true);
+        registerEntity(EntityOnchopristis.class, "Onchopristis", true);
 
         registerEntity(EntityEgg.class, "Egg", false);
         registerEntity(EntityDakoArrow.class, "DakoArrow", false);

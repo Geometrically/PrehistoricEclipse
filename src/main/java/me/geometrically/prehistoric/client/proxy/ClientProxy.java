@@ -7,10 +7,7 @@ import me.geometrically.prehistoric.client.render.RenderDakoArrow;
 import me.geometrically.prehistoric.client.render.RenderPrehistoric;
 import me.geometrically.prehistoric.server.Reference;
 import me.geometrically.prehistoric.server.entity.EntityEgg;
-import me.geometrically.prehistoric.server.entity.aquatic.EntityDunkleosteus;
-import me.geometrically.prehistoric.server.entity.aquatic.EntityPlesiosaurus;
-import me.geometrically.prehistoric.server.entity.aquatic.EntitySaurichthys;
-import me.geometrically.prehistoric.server.entity.aquatic.EntitySeaScorpion;
+import me.geometrically.prehistoric.server.entity.aquatic.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.herbivore.*;
 import me.geometrically.prehistoric.server.entity.flying.EntityDragonfly;
@@ -84,6 +81,9 @@ public class ClientProxy implements IProxy {
 
         RenderPrehistoric saurRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("sauroposeidon", new ResourceLocation(Reference.MOD_ID + ":models/entity/saur/sauroposeidon.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/saur/male.png"), ModelPrehistoric.class));
         RenderingRegistry.registerEntityRenderingHandler(EntitySauroposeidon.class, saurRenderer);
+
+        RenderPrehistoric onchoRenderer = new RenderPrehistoric(FileLoader.loadModelFromResources("onchopristis", new ResourceLocation(Reference.MOD_ID + ":models/entity/oncho/onchopristis.obm"), new ResourceLocation(Reference.MOD_ID, "models/entity/oncho/male.png"), ModelPrehistoric.class));
+        RenderingRegistry.registerEntityRenderingHandler(EntityOnchopristis.class, onchoRenderer);
 
         RenderingRegistry.registerEntityRenderingHandler(EntityDakoArrow.class, renderManager -> new RenderDakoArrow(renderManager));
 

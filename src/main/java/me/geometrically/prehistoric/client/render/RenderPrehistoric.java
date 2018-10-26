@@ -4,10 +4,7 @@ import com.dabigjoe.obsidianAPI.render.RenderAnimated;
 import me.geometrically.prehistoric.client.model.ModelPrehistoric;
 import me.geometrically.prehistoric.server.entity.EntityEgg;
 import me.geometrically.prehistoric.server.entity.EntityPrehistoric;
-import me.geometrically.prehistoric.server.entity.aquatic.EntityDunkleosteus;
-import me.geometrically.prehistoric.server.entity.aquatic.EntityPlesiosaurus;
-import me.geometrically.prehistoric.server.entity.aquatic.EntitySaurichthys;
-import me.geometrically.prehistoric.server.entity.aquatic.EntitySeaScorpion;
+import me.geometrically.prehistoric.server.entity.aquatic.*;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityAllosaurus;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityDakotaraptor;
 import me.geometrically.prehistoric.server.entity.dinosaur.carnivore.EntityTyrannosaurusRex;
@@ -81,6 +78,8 @@ public class RenderPrehistoric extends RenderAnimated {
         } else if (entity instanceof EntitySauroposeidon) {
             GlStateManager.translate(0, 2.0F, 0);
             scaleFactor = 2.5F;
+        } else if (entity instanceof EntityOnchopristis) {
+            GlStateManager.translate(0, 1.0F, 0);
         }
         GlStateManager.scale(scaleFactor, scaleFactor, scaleFactor);
         if(entity instanceof EntityAgeable){

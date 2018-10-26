@@ -61,6 +61,7 @@ public class PEAnimations {
         registerTupanAnimations();
         registerAlloAnimations();
         registerSauroposeidonAnimations();
+        registerOnchoAnimations();
     }
     private static void registerEggAnimations(){
         FunctionAnimationWrapper.IsActiveFunction isHatching = (entity) -> { return entity instanceof EntityEgg ? ((EntityEgg) entity).timeUntilHatch() <= 200 : false; };
@@ -188,5 +189,10 @@ public class PEAnimations {
         AnimationRegistry.registerEntity(EntitySauroposeidon.class, "sauroposeidon");
         AnimationRegistry.registerAnimation("sauroposeidon", "Idle", new ResourceLocation(Reference.MOD_ID + ":animations/saur/sauroposiedon_idle.oba"), 100, true, returnTrue);
         AnimationRegistry.registerAnimation("sauroposeidon", "Walk", new ResourceLocation(Reference.MOD_ID + ":animations/saur/sauroposiedon_walk.oba"), 10, true, isWalking);
+    }
+
+    private static void registerOnchoAnimations() {
+        AnimationRegistry.registerEntity(EntityOnchopristis.class, "onchopristis");
+        AnimationRegistry.registerAnimation("onchopristis", "Swim", new ResourceLocation(Reference.MOD_ID + ":animations/oncho/onchopristis_swim.oba"), 1, true, isSwimming);
     }
 }
