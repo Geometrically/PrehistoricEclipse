@@ -1,0 +1,46 @@
+itemGroup.prehistoric = Prehistoric Eclipse
+
+item.hunters_bow.name=사냥꾼의 활
+item.grapes.name=포도
+
+item.monolophosaurus_crest.name=모노로포사우루스 볏
+item.monolophosaurus_raw.name=모노로포사우루스 고기
+item.monolophosaurus_cooked.name=모노로포사우루스 구운 고기
+item.monolophosaurus_claw.name=모노로포사우루스 발톱
+
+item.dakotaraptor_skull.name=다코타랩터 해골
+item.dakotaraptor_feather.name=다코타랩터 깃털
+item.dakotaraptor_raw.name=다코타랩터 고기
+item.dakotaraptor_cooked.name=다코타랩터 구운 고기
+item.dakotaraptor_arrow.name=다코타랩터 살
+
+entity.Dakotaraptor.name=다코타랩터
+entity.Monolophosaurus.name=모노로포사우루스
+entity.Plesiosaurus.name=플레시오사우루스
+entity.Velociraptor.name=벨로시랩터
+entity.Titanoceratops.name=티타노케라톱스
+entity.Dunkleosteus.name=둔클레오스테우스
+entity.Plateosaurus.name=플라테오사우루스
+entity.Arthropleura.name=아트로플레우라
+entity.Saurichthys.name=사우리크티스
+entity.TyrannosaurusRex.name=티라노사우루스
+entity.Protoceratops.name=프로토케라톱스
+entity.SeaScorpion.name=바다 전갈
+entity.Pachycephalosaurus.name=파키케팔로사우루스
+entity.Dragonfly.name=잠자리
+entity.Tupandactylus.name=투판닥틸루스
+entity.Allosaurus.name=알로사우루스
+entity.Sauroposeidon.name=사우로포세이돈
+
+tile.nest.name=둥지
+tile.grape_vine.name=포도 덩굴
+tile.coral_red.name=붉은 산호
+tile.coral_blue.name=블루 산호
+tile.coral_yellow.name=황색 산호
+tile.water_plant.name=수초
+tile.magnolia_leaves.name=목련 잎
+tile.pink_magnolia_leaves.name=분홍 목련 잎
+tile.magnolia_sapling.name = 목련 묘목
+tile.pink_magnolia_sapling.name=분홍 목련 묘목
+tile.sea_anemone.name=말미잘
+tile.seaweed_segment.name=해초
