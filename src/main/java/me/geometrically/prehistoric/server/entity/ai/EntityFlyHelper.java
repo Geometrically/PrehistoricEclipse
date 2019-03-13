@@ -27,12 +27,16 @@ public class EntityFlyHelper extends EntityMoveHelper {
                 distance = (double) MathHelper.sqrt(distance);
 
                 if (this.isNotColliding(this.posX, this.posY, this.posZ, distance)) {
-                    this.entity.motionX += distanceX / distance * 0.1D;
-                    this.entity.motionY += distanceY / distance * 0.1D;
-                    this.entity.motionZ += distanceZ / distance * 0.1D;
+                    this.entity.motionX += distanceX / distance * 0.09D;
+                    this.entity.motionY += distanceY / distance * 0.09D;
+                    this.entity.motionZ += distanceZ / distance * 0.09D;
                 } else {
                     this.action = EntityMoveHelper.Action.WAIT;
                 }
+                double d0 = this.posX - this.entity.posX;
+                double d1 = this.posZ - this.entity.posZ;
+                float f9 = (float) (MathHelper.atan2(d1, d0) * (180D / Math.PI)) - 90.0F;
+                this.entity.rotationYaw = this.limitAngle(this.entity.rotationYaw, f9, 10F);
             }
         }
     }

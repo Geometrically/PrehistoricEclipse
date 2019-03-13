@@ -10,7 +10,7 @@ public class EntityArthropleura extends EntityHerbivore{
 
     public EntityArthropleura(World world){
         super(world);
-        this.setSize(0.5F, 0.5F);
+        this.setSize(1.4F, 0.5F);
     }
 
     @Override

@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 public class EntityTupandactylus extends EntityAir {
     public EntityTupandactylus(World world) {
         super(world);
-        this.setSize(1.0F, 2.0F);
+        this.setSize(1.2F, 1.2F);
     }
 
     @Override

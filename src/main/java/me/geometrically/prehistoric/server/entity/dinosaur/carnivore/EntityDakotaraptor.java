@@ -23,7 +23,7 @@ public class EntityDakotaraptor extends EntityCarnivore{
     public EntityDakotaraptor(World worldIn)
     {
         super(worldIn);
-        this.setSize(2.0F, 2.0F);
+        this.setSize(1.4F, 1.4F);
     }
     @Override
     protected void initEntityAI()

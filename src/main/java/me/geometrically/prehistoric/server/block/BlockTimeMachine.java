@@ -10,6 +10,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.common.FMLCommonHandler;
 
 public class BlockTimeMachine extends BlockPrehistoric {
     public BlockTimeMachine() {
@@ -31,7 +32,12 @@ public class BlockTimeMachine extends BlockPrehistoric {
         if (worldIn.isRemote) {
             return true;
         } else {
-            PrehistoricTeleporter.teleportToDimension(playerIn, 46, 0, 100, 0);
+            double x = pos.getX();
+            double y = FMLCommonHandler.instance().getMinecraftServerInstance().getWorld(46).getTopSolidOrLiquidBlock(pos).getY() + 2;
+
+            double z = pos.getZ();
+            PrehistoricTeleporter.teleportToDimension(playerIn, 46, x, y, z);
+
             return true;
         }
     }

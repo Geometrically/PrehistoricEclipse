@@ -14,7 +14,7 @@ public class EntityPachycephalosaurus extends EntityHerbivore {
 
     public EntityPachycephalosaurus(World world) {
         super(world);
-        this.setSize(3.0F, 4.0F);
+        this.setSize(1.5F, 1.5F);
         this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityDakotaraptor.class, 30.0F, 2.0D));
         this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityMonolophosaurus.class, 30.0F, 2.0D));
         this.tasks.addTask(3, new EntityAIRunFromEntity(this, EntityTyrannosaurusRex.class, 30.0F, 2.0D));

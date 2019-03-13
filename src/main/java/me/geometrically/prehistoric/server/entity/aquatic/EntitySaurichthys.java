@@ -12,7 +12,7 @@ public class EntitySaurichthys extends EntityAquatic {
     public EntitySaurichthys(World worldIn)
     {
         super(worldIn);
-        this.setSize(1.5F, 0.5F);
+        this.setSize(0.5F, 0.5F);
     }
 
     protected void applyEntityAttributes()

@@ -12,7 +12,7 @@ public class EntitySauroposeidon extends EntityHerbivore {
 
     public EntitySauroposeidon(World world) {
         super(world);
-        this.setSize(10.0F, 20.0F);
+        this.setSize(5F, 8F);
     }
 
     @Override

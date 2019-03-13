@@ -21,7 +21,7 @@ public class EntityVelociraptor extends EntityCarnivore {
 
     public EntityVelociraptor(World world){
         super(world);
-        this.setSize(2.0F, 2.0F);
+        this.setSize(1F, 1F);
     }
     @Override
     protected void initEntityAI()

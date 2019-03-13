@@ -23,7 +23,7 @@ public class EntityTyrannosaurusRex extends EntityCarnivore {
 
     public EntityTyrannosaurusRex(World worldIn) {
         super(worldIn);
-        this.setSize(2.0F, 6.0F);
+        this.setSize(3.5F, 5.0F);
     }
     @Override
     protected void initEntityAI() {

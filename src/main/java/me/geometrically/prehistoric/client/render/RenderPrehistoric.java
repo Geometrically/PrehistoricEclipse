@@ -48,7 +48,7 @@ public class RenderPrehistoric extends RenderAnimated {
         } else if(entity instanceof EntityPlesiosaurus){
             scaleFactor = 0.50D;
         }  else if(entity instanceof EntityTitanoceratops) {
-            scaleFactor = 1.5D;
+            scaleFactor = 1.45D;
         } else if(entity instanceof EntityVelociraptor){
             scaleFactor = 0.4D;
         } else if(entity instanceof EntityEgg){
@@ -63,21 +63,22 @@ public class RenderPrehistoric extends RenderAnimated {
             scaleFactor = 0.50D;
         } else if(entity instanceof EntityTyrannosaurusRex){
             GlStateManager.translate(0, 2.5F, 0);
-            scaleFactor = 3.3F;
+            scaleFactor = 3.3D;
         } else if(entity instanceof EntitySeaScorpion){
             GlStateManager.translate(0, -0.5F, 0);
         } else if (entity instanceof EntityPachycephalosaurus) {
-            scaleFactor = 0.5F;
+            scaleFactor = 0.5D;
         } else if (entity instanceof EntityDragonfly) {
+            scaleFactor = 0.55D;
             GlStateManager.translate(0, 1.0F, 0);
         } else if (entity instanceof EntityTupandactylus) {
             GlStateManager.translate(0, 1.0F, 0);
         } else if (entity instanceof EntityAllosaurus){
             GlStateManager.translate(0, 1.8F, 0);
-            scaleFactor= 2.3F;
+            scaleFactor = 2.3D;
         } else if (entity instanceof EntitySauroposeidon) {
             GlStateManager.translate(0, 2.0F, 0);
-            scaleFactor = 2.5F;
+            scaleFactor = 2.5D;
         } else if (entity instanceof EntityOnchopristis) {
             GlStateManager.translate(0, 1.0F, 0);
         }

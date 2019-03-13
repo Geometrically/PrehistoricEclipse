@@ -10,6 +10,7 @@ item.monolophosaurus_claw.name=Monolophosaurus Claw
 
 item.dakotaraptor_skull.name=Dakotaraptor Skull
 item.dakotaraptor_feather.name=Dakotaraptor Feather
+item.dakotaraptor_claw.name=Dakotaraptor Claw
 item.dakotaraptor_raw.name=Dakotaraptor Meat
 item.dakotaraptor_cooked.name=Dakotaraptor Beef
 item.dakotaraptor_arrow.name=Dakotaraptor Arrow
@@ -31,6 +32,7 @@ entity.Dragonfly.name=Mazothairos
 entity.Tupandactylus.name=Tupandactylus
 entity.Allosaurus.name=Allosaurus
 entity.Sauroposeidon.name=Sauroposeidon
+entity.Onchopristis.name=Onchopristis
 
 tile.nest.name=Nest
 tile.grape_vine.name=Grape Vine

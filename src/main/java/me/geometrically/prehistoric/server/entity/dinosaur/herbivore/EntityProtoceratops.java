@@ -12,7 +12,7 @@ public class EntityProtoceratops extends EntityHerbivore{
 
     public EntityProtoceratops(World world){
         super(world);
-        this.setSize(2.0F, 2.0F);
+        this.setSize(1.5F, 1F);
     }
 
     @Override
