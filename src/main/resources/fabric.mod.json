@@ -1,29 +1,37 @@
 {
   "schemaVersion": 1,
-  "id": "modid",
+  "id": "pe",
   "version": "${version}",
 
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Prehistoric Eclipse",
+  "description": "Prehistoric Eclipse is a mod that takes you back into the realm of the dinosaurs.",
   "authors": [
-    "Me!"
+    "Geometrically",
+    "Fluffy Taco",
+    "Huncho Houdini",
+    "Lord of Lustria"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://guavy.net/prehistoriceclipse",
+    "sources": "https://github.com/Geometrically/PrehistoricEclipse"
   },
 
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/pe/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "net.fabricmc.example.ExampleMod"
+      "net.guavy.prehistoriceclipse.PrehistoricEclipse"
+    ],
+    "client": [
+      {
+        "value": "net.guavy.prehistoriceclipse.client.PrehistoricClient"
+      }
     ]
   },
   "mixins": [
-    "modid.mixins.json"
+    "pe.mixins.json"
   ],
 
   "depends": {
