@@ -1,9 +1,10 @@
 package net.guavy.prehistoriceclipse.client.animation;
 
-import java.util.List;
+import com.google.gson.JsonObject;
+
+import java.util.Map;
 
 public class Animation {
-    public String name;
     public double length;
-    public List<Bone> bones;
+    public Map<String, JsonObject> bones;
 }

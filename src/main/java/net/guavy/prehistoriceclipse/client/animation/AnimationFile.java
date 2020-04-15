@@ -1,8 +1,8 @@
 package net.guavy.prehistoriceclipse.client.animation;
 
-import java.util.List;
+import java.util.Map;
 
 public class AnimationFile {
-    public String formatVersion;
-    public List<Animation> animations;
+    public String format_version;
+    public Map<String, Animation> animations;
 }

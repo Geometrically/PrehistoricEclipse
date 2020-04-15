@@ -1,13 +1,12 @@
 package net.guavy.prehistoriceclipse.client;
 
 import net.fabricmc.api.ClientModInitializer;
-import net.guavy.prehistoriceclipse.client.animation.AnimationRegistry;
-import net.guavy.prehistoriceclipse.init.PrehistoricEntities;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.resource.ResourceManagerHelper;
+import net.minecraft.resource.ResourceType;
 
 public class PrehistoricClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
-        AnimationRegistry.INSTANCE.RegisterAnimations(PrehistoricEntities.ALLOSAURUS, new Identifier("pe", "austroraptor"));
+        ResourceManagerHelper.get(ResourceType.CLIENT_RESOURCES).registerReloadListener(new AnimationReloadListener());
     }
 }

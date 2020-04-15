@@ -1,34 +1,20 @@
 package net.guavy.prehistoriceclipse.client.animation;
 
-import com.google.gson.Gson;
-import com.google.gson.stream.JsonReader;
-import net.minecraft.client.MinecraftClient;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.resource.Resource;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Pair;
 
-import java.io.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public final class AnimationRegistry {
-    public static final AnimationRegistry INSTANCE = new AnimationRegistry();
+    public static final Map<EntityType<?>, Map<String, Animation>> registeredAnimations = new HashMap<>();
 
-    private AnimationRegistry() {
+    public static final List<Pair<EntityType<?>, Identifier>> animationsToRegister = new ArrayList<>();
 
-    }
-
-    public <T extends Entity> void RegisterAnimations(EntityType<T> entityType, Identifier identifier) {
-        Identifier id = new Identifier("pe", "animations/austroraptor.json");
-
-        try {
-            InputStream stream = MinecraftClient.getInstance().getResourceManager().getResource(id).getInputStream();
-            Reader reader = new InputStreamReader(stream);
-
-            AnimationFile animationFile = new Gson().fromJson(reader, AnimationFile.class);
-
-            System.out.println(animationFile.formatVersion);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static void addEntityAnimations(EntityType<?> entityType, Identifier identifier) {
+        animationsToRegister.add(new Pair<>(entityType, identifier));
     }
 }
