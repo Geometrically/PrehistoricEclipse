@@ -7,7 +7,7 @@ import net.minecraft.client.render.VertexConsumer;
 import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
-public class AllosaurusModel extends EntityModel<AllosaurusEntity> {
+public class AllosaurusModel extends AnimatedModel<AllosaurusEntity> {
     private final ModelPart root;
     private final ModelPart body;
     private final ModelPart tailbase;
@@ -72,6 +72,8 @@ public class AllosaurusModel extends EntityModel<AllosaurusEntity> {
     private final ModelPart r4;
 
     public AllosaurusModel() {
+        super();
+
         textureWidth = 140;
         textureHeight = 130;
 
@@ -457,10 +459,5 @@ public class AllosaurusModel extends EntityModel<AllosaurusEntity> {
     @Override
     public void render(MatrixStack matrices, VertexConsumer vertexConsumer, int light, int overlay, float red, float green, float blue, float alpha) {
         root.render(matrices, vertexConsumer, light, overlay, red, green, blue, alpha);
-    }
-
-    @Override
-    public void animateModel(AllosaurusEntity entity, float limbAngle, float limbDistance, float tickDelta) {
-        super.animateModel(entity, limbAngle, limbDistance, tickDelta);
     }
 }

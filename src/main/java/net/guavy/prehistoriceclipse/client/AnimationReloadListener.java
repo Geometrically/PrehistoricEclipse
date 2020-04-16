@@ -1,6 +1,7 @@
 package net.guavy.prehistoriceclipse.client;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import net.fabricmc.fabric.api.resource.SimpleSynchronousResourceReloadListener;
 import net.guavy.prehistoriceclipse.client.animation.AnimationFile;
 import net.guavy.prehistoriceclipse.client.animation.AnimationRegistry;
@@ -28,6 +29,8 @@ public class AnimationReloadListener implements SimpleSynchronousResourceReloadL
                 Reader reader = new InputStreamReader(stream);
 
                 AnimationFile animationFile = new Gson().fromJson(reader, AnimationFile.class);
+
+                JsonObject animation =
 
                 AnimationRegistry.registeredAnimations.put(animationToRegister.getLeft(), animationFile.animations);
             }
