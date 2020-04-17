@@ -5,6 +5,8 @@ import com.google.gson.JsonObject;
 import java.util.Map;
 
 public class ParsedAnimation {
-    public double length;
+    public boolean loop;
+
+    public float animation_length;
     public Map<String, JsonObject> bones;
 }

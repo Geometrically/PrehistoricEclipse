@@ -4,7 +4,6 @@ import net.guavy.prehistoriceclipse.entity.DinosaurEntity;
 import net.guavy.prehistoriceclipse.entity.land.AllosaurusEntity;
 import net.minecraft.client.model.ModelPart;
 import net.minecraft.client.render.VertexConsumer;
-import net.minecraft.client.render.entity.model.EntityModel;
 import net.minecraft.client.util.math.MatrixStack;
 
 public class AllosaurusModel extends AnimatedModel<AllosaurusEntity> {
@@ -72,8 +71,6 @@ public class AllosaurusModel extends AnimatedModel<AllosaurusEntity> {
     private final ModelPart r4;
 
     public AllosaurusModel() {
-        super();
-
         textureWidth = 140;
         textureHeight = 130;
 
@@ -445,10 +442,6 @@ public class AllosaurusModel extends AnimatedModel<AllosaurusEntity> {
         r4.addCuboid("r4", -1.5F, -0.8026F, -3.3399F, 3, 2, 5, 0.0F, 20, 117);
     }
 
-    @Override
-    public void setAngles(AllosaurusEntity entity, float limbAngle, float limbDistance, float customAngle, float headYaw, float headPitch) {
-
-    }
 
     public void setRotationAngle(ModelPart modelRenderer, float x, float y, float z) {
         modelRenderer.pitch = x;

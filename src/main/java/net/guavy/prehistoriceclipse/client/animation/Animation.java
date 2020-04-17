@@ -1,10 +1,13 @@
 package net.guavy.prehistoriceclipse.client.animation;
 
-import com.google.gson.JsonObject;
+import net.guavy.prehistoriceclipse.client.animation.bone.Bone;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class Animation {
-    public double length;
-    public Map<String, JsonObject> bones;
+    public boolean loop;
+
+    public float length;
+    public final Map<String, Bone> bones = new HashMap<>();
 }
