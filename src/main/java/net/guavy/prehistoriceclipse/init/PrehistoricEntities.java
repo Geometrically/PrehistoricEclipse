@@ -3,7 +3,6 @@ package net.guavy.prehistoriceclipse.init;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.entity.FabricEntityTypeBuilder;
 import net.guavy.prehistoriceclipse.client.model.AllosaurusModel;
-import net.guavy.prehistoriceclipse.client.model.AustroraptorModel;
 import net.guavy.prehistoriceclipse.client.render.PrehistoricRenderer;
 import net.guavy.prehistoriceclipse.entity.DinosaurEntity;
 import net.guavy.prehistoriceclipse.entity.land.AllosaurusEntity;
@@ -27,7 +26,7 @@ public class PrehistoricEntities {
     public static List<Runnable> dinosaurs = new ArrayList<>();
 
     public static final EntityType<AllosaurusEntity> ALLOSAURUS = makeEntity("allosaurus", AllosaurusEntity::new, EntityCategory.AMBIENT, 1, 2, AllosaurusModel::new);
-    public static final EntityType<AustroraptorEntity> AUSTRORAPTOR = makeEntity("austroraptor", AustroraptorEntity::new, EntityCategory.AMBIENT, 1, 2, AustroraptorModel::new);
+    //public static final EntityType<AustroraptorEntity> AUSTRORAPTOR = makeEntity("austroraptor", AustroraptorEntity::new, EntityCategory.AMBIENT, 1, 2, AustroraptorModel::new);
 
     public static <T extends DinosaurEntity> EntityType<T> makeEntity(String name, EntityType.EntityFactory<T> factory, EntityCategory category, float width, float height, Supplier<EntityModel<T>> model) {
         EntityType<T> entityType = FabricEntityTypeBuilder.create(category, factory).size(EntityDimensions.fixed(width, height)).build();
