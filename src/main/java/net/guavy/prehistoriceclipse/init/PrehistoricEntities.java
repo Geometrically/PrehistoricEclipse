@@ -16,6 +16,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.SpawnEggItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import software.bernie.geckolib.animation.model.AnimatedEntityModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,7 @@ public class PrehistoricEntities {
     public static final EntityType<AllosaurusEntity> ALLOSAURUS = makeEntity("allosaurus", AllosaurusEntity::new, EntityCategory.AMBIENT, 1, 2, AllosaurusModel::new);
     //public static final EntityType<AustroraptorEntity> AUSTRORAPTOR = makeEntity("austroraptor", AustroraptorEntity::new, EntityCategory.AMBIENT, 1, 2, AustroraptorModel::new);
 
-    public static <T extends DinosaurEntity> EntityType<T> makeEntity(String name, EntityType.EntityFactory<T> factory, EntityCategory category, float width, float height, Supplier<EntityModel<T>> model) {
+    public static <T extends DinosaurEntity> EntityType<T> makeEntity(String name, EntityType.EntityFactory<T> factory, EntityCategory category, float width, float height, Supplier<AnimatedEntityModel<T>> model) {
         EntityType<T> entityType = FabricEntityTypeBuilder.create(category, factory).size(EntityDimensions.fixed(width, height)).build();
 
         dinosaurs.add(() -> {
