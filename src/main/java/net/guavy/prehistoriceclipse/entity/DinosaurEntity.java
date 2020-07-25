@@ -1,25 +1,32 @@
 package net.guavy.prehistoriceclipse.entity;
 
+import net.guavy.prehistoriceclipse.entity.ai.DinosaurWanderGoal;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.ai.goal.MeleeAttackGoal;
 import net.minecraft.entity.ai.goal.PounceAtTargetGoal;
 import net.minecraft.entity.ai.goal.SwimGoal;
-import net.minecraft.entity.ai.goal.WanderAroundFarGoal;
+import net.minecraft.entity.data.DataTracker;
+import net.minecraft.entity.data.TrackedData;
+import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.mob.MobEntityWithAi;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.World;
-import software.bernie.geckolib.animation.AnimationBuilder;
-import software.bernie.geckolib.animation.AnimationTestEvent;
-import software.bernie.geckolib.animation.model.AnimationController;
-import software.bernie.geckolib.animation.model.AnimationControllerCollection;
+import software.bernie.geckolib.animation.builder.AnimationBuilder;
+import software.bernie.geckolib.animation.controller.AnimationController;
 import software.bernie.geckolib.entity.IAnimatedEntity;
+import software.bernie.geckolib.event.AnimationTestEvent;
+import software.bernie.geckolib.forgetofabric.ResourceLocation;
+import software.bernie.geckolib.manager.EntityAnimationManager;
 
-public class DinosaurEntity extends MobEntityWithAi implements IAnimatedEntity {
-    public AnimationControllerCollection animationControllers = new AnimationControllerCollection();
+public abstract class DinosaurEntity extends MobEntityWithAi implements IAnimatedEntity {
 
-    private AnimationController<DinosaurEntity> moveController = new AnimationController<>(this, "moveController", 10F, this::moveController);
+    private static final TrackedData<String> GENDER = DataTracker.registerData(DinosaurEntity.class, TrackedDataHandlerRegistry.STRING);
 
-    protected DinosaurEntity(EntityType<? extends MobEntityWithAi> type, World world) {
+    public EntityAnimationManager animationManager = new EntityAnimationManager();
+    private AnimationController<DinosaurEntity> moveController = new AnimationController<DinosaurEntity>(this, "moveController", 10F, this::moveController);
+
+    public DinosaurEntity(EntityType<? extends MobEntityWithAi> type, World world) {
         super(type, world);
         registerAnimationControllers();
     }
@@ -29,41 +36,85 @@ public class DinosaurEntity extends MobEntityWithAi implements IAnimatedEntity {
         super.initGoals();
         this.goalSelector.add(0, new SwimGoal(this));
         this.goalSelector.add(3, new PounceAtTargetGoal(this, 0.6F));
-        this.goalSelector.add(4, new MeleeAttackGoal(this, 0.6F, false));
-        this.goalSelector.add(5, new WanderAroundFarGoal(this, 0.4D));
+        this.goalSelector.add(4, new MeleeAttackGoal(this, 0.6F, true));
+        this.goalSelector.add(5, new DinosaurWanderGoal(this, 50, 0.4D));
     }
 
     @Override
-    public AnimationControllerCollection getAnimationControllers() {
-        return animationControllers;
+    protected void initDataTracker() {
+        super.initDataTracker();
+        this.dataTracker.set(GENDER, Gender.MALE.name());
+    }
+
+    @Override
+    protected void afterSpawn() {
+        super.afterSpawn();
+
+        this.setGender(Gender.values()[random.nextInt(2)]);
+    }
+
+    public Gender getGender() {
+        return Gender.valueOf(this.dataTracker.get(GENDER));
+    }
+
+    public void setGender(Gender gender) {
+        this.dataTracker.set(GENDER, gender.name());
+    }
+
+    @Override
+    public void fromTag(CompoundTag tag) {
+        super.fromTag(tag);
+
+        this.setGender(Gender.valueOf(tag.getString("Gender")));
+    }
+
+    @Override
+    public CompoundTag toTag(CompoundTag tag) {
+        tag.putString("Gender", this.getGender().name());
+
+        return super.toTag(tag);
+    }
+
+    @Override
+    public EntityAnimationManager getAnimationManager() {
+        return this.animationManager;
     }
 
     public void registerAnimationControllers() {
         if(!this.world.isClient) return;
 
-        this.animationControllers.addAnimationController(moveController);
+        this.animationManager.addAnimationController(moveController);
     }
 
-    private <T extends Entity> boolean moveController(AnimationTestEvent<T> entityAnimationTestEvent)
+    private boolean moveController(AnimationTestEvent<DinosaurEntity> entityAnimationTestEvent)
     {
-        DinosaurEntity dinosaurEntity = (DinosaurEntity) entityAnimationTestEvent.getEntity();
+        DinosaurEntity dinosaurEntity = entityAnimationTestEvent.getEntity();
 
         if(dinosaurEntity.isAttacking()) {
             moveController.setAnimation(new AnimationBuilder().addAnimation("Attack", false));
-        } else if(dinosaurEntity.limbDistance > 0.5F) {
+        } else if(dinosaurEntity.limbDistance > 0.3F) {
             moveController.setAnimation(new AnimationBuilder().addAnimation("Run", true));
-        } else if(dinosaurEntity.limbDistance > 0.1F) {
+        } else if(dinosaurEntity.limbDistance > 0.2F) {
             moveController.setAnimation(new AnimationBuilder().addAnimation("Walk", true));
         } else {
             moveController.setAnimation(new AnimationBuilder().addAnimation("Idle", true));
         }
 
-
         return true;
     }
 
-    @Override
-    public boolean tryAttack(Entity target) {
-        return super.tryAttack(target);
+    public abstract String getDinosaurName();
+
+    public ResourceLocation getAnimationFilePath() {
+        return new ResourceLocation("pe", "animations/" + getDinosaurName() + ".animation.json");
+    }
+
+    public static boolean hasVariant() {
+        return false;
+    }
+
+    public enum Gender {
+        MALE,
+        FEMALE
     }
 }

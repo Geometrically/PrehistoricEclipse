@@ -8,16 +8,16 @@ import net.minecraft.util.Identifier;
 
 public class PrehistoricRenderer<T extends DinosaurEntity> extends MobEntityRenderer<T, EntityModel<T>> {
 
-    private String resourceName;
-
-    public PrehistoricRenderer(EntityRenderDispatcher entityRenderDispatcher, EntityModel<T> entityModel, String resourceName) {
+    public PrehistoricRenderer(EntityRenderDispatcher entityRenderDispatcher, EntityModel<T> entityModel) {
         super(entityRenderDispatcher, entityModel, 1f);
-
-        this.resourceName = resourceName;
     }
 
     @Override
-    public Identifier getTexture(T entity) {
-        return new Identifier("pe:textures/entity/" + resourceName + ".png");
+    public Identifier getTexture(DinosaurEntity entity) {
+        if (entity.getGender() == DinosaurEntity.Gender.FEMALE && T.hasVariant()) {
+            return new Identifier("pe:textures/entity/" + T.getDinosaurName() + "/female.png");
+        } else {
+            return new Identifier("pe:textures/entity/" + T.getDinosaurName() + "/male.png");
+        }
     }
 }

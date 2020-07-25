@@ -1,15 +1,14 @@
 package net.guavy.prehistoriceclipse.client.model;
 
 import net.guavy.prehistoriceclipse.entity.land.AllosaurusEntity;
-import software.bernie.geckolib.animation.model.AnimatedEntityModel;
-import software.bernie.geckolib.animation.model.AnimatedModelRenderer;
+import software.bernie.geckolib.animation.render.AnimatedModelRenderer;
 import software.bernie.geckolib.forgetofabric.ResourceLocation;
 
 // Made with Blockbench 3.5.4
 // Exported for Minecraft version 1.12.2 or 1.15.2 (same format for both) for entity models animated with GeckoLib
 // Paste this class into your mod and follow the documentation for GeckoLib to use animations. You can find the documentation here: https://github.com/bernie-g/geckolib
 // Blockbench plugin created by Gecko
-public class AllosaurusModel extends AnimatedEntityModel<AllosaurusEntity> {
+public class AllosaurusModel extends DinosaurModel<AllosaurusEntity> {
 
     private final AnimatedModelRenderer root;
 	private final AnimatedModelRenderer body;
@@ -572,11 +571,4 @@ public class AllosaurusModel extends AnimatedEntityModel<AllosaurusEntity> {
 
 		this.rootBones.add(root);
 	}
-
-
-    @Override
-    public ResourceLocation getAnimationFileLocation()
-    {
-        return new ResourceLocation("pe", "animations/allosaurus.json");
-    }
 }
